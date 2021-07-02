@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import React from "react";
+import React, { useState } from "react";
 import { loginAction } from "../actions/AccountActions";
+import { firebase } from "../firebase/config";
+
 import {
   StyleSheet,
   Text,
@@ -10,41 +12,85 @@ import {
   Image,
   SafeAreaView,
   ScrollView,
-  Platform
+  Platform,
 } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 
 const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const loggedIn = useSelector((state) => state.AccountReducer.loggedIn);
   const dispatch = useDispatch();
   const login = () => dispatch(loginAction());
+  const register = () => navigation.navigate("Register");
+
+  const onLoginPress = () => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((response) => {
+        const uid = response.user.uid;
+        const usersRef = firebase.firestore().collection("users");
+        usersRef
+          .doc(uid)
+          .get()
+          .then((firestoreDocument) => {
+            if (!firestoreDocument.exists) {
+              alert("User does not exist anymore.");
+              return;
+            }
+            const user = firestoreDocument.data();
+            login();
+          })
+          .catch((error) => {
+            alert(error);
+          });
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
 
   return (
-    <SafeAreaView >
-      <View style={styles.background}>
-        <View style={styles.logoContainer}>
-          <Image source={require("../assets/Logo.png")} style={styles.logo} />
-          <Text style={styles.logoText}>Turn trash into gold!</Text>
-        </View>
-        
-        <View style={styles.loginContainer}>
+    <SafeAreaView style={styles.background}>
+      <View style={styles.logoContainer}>
+        <Image source={require("../assets/Logo.png")} style={styles.logo} />
+        <Text style={styles.logoText}>Turn trash into gold!</Text>
+      </View>
+
+      <View style={styles.loginContainer}>
         <ScrollView>
-          <TextInput style={styles.input} placeholder="username or email" />
+          <TextInput
+            style={styles.input}
+            placeholder="E-mail"
+            placeholderTextColor="#aaaaaa"
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+            underlineColorAndroid="transparent"
+            autoCapitalize="none"
+          />
+          <TextInput
+            style={styles.input}
+            placeholderTextColor="#aaaaaa"
+            secureTextEntry
+            placeholder="Password"
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+            underlineColorAndroid="transparent"
+            autoCapitalize="none"
+          />
 
-          <TextInput style={styles.input} placeholder="password" />
-
-          <TouchableOpacity style={styles.loginButton} onPress={login}>
+          <TouchableOpacity style={styles.loginButton} onPress={onLoginPress}>
             <Text style={styles.loginText}>Login</Text>
           </TouchableOpacity>
           <View style={styles.registerContainer}>
             <Text style={styles.registerText}>Don't have an account?</Text>
-            <Button
-              title="Register"
-              onPress={() => navigation.navigate("Register")}
-            />
+            <TouchableOpacity style={styles.loginButton} onPress={register}>
+              <Text style={styles.registerText}>Register</Text>
+            </TouchableOpacity>
           </View>
-          </ScrollView>
-        </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -67,7 +113,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     position: "absolute",
-    top: 75,
+    top: 5,
     alignItems: "center",
   },
   input: {
@@ -90,7 +136,7 @@ const styles = StyleSheet.create({
   },
   loginContainer: {
     position: "absolute",
-    top: 500,
+    top: 350,
     height: 200,
     justifyContent: "space-around",
   },
