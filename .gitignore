@@ -14,6 +14,7 @@ client/.expo/*
 client/.expo-shared/*
 *.log
 .secret
+Addresses.txt
 
 # macOS
 .DS_Store
