@@ -85,10 +85,12 @@ const LoginScreen = ({ navigation }) => {
             <Text style={styles.loginText}>Login</Text>
           </TouchableOpacity>
           <View style={styles.registerContainer}>
-            <Text style={styles.registerText}>Don't have an account?</Text>
-            <TouchableOpacity style={styles.loginButton} onPress={register}>
-              <Text style={styles.registerText}>Register</Text>
-            </TouchableOpacity>
+            <Text style={styles.registerText}>
+              Don't have an account?{" "}
+              <Text onPress={register} style={styles.registerLink}>
+                Register
+              </Text>
+            </Text>
           </View>
         </ScrollView>
       </View>
@@ -148,6 +150,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     height: 40,
+  },
+  registerLink: {
+    color: "#788eec",
+    fontWeight: "bold",
+    fontSize: 16,
   },
 });
 

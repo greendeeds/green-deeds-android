@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { logoutAction } from "../actions/AccountActions";
 import { SafeAreaView, Text, View, Button } from "react-native";
 
-import { withNavigation } from "@react-navigation/native"
+import { withNavigation } from "@react-navigation/native";
+import firebase from "firebase";
 
 const HomeScreen = ({ navigation }) => {
-
   const loggedIn = useSelector((state) => state.AccountReducer.loggedIn);
   const dispatch = useDispatch();
 
@@ -15,7 +15,9 @@ const HomeScreen = ({ navigation }) => {
   const recycle = () => navigation.navigate("Recycle");
   const celo = () => navigation.navigate("Celo");
 
-
+  const onLogoutPress = () => {
+    firebase.auth().signOut().then(logout);
+  };
 
   return (
     <SafeAreaView>
@@ -23,12 +25,9 @@ const HomeScreen = ({ navigation }) => {
         <Button title="Compost" onPress={compost} />
         <Button title="Recycle" onPress={recycle} />
         <Text></Text>
-        <Button title="Celo"    onPress={celo} />
+        <Button title="Celo" onPress={celo} />
         <Text></Text>
-        <Button title="Logout"  onPress={logout} />
-
-
-        
+        <Button title="Logout" onPress={onLogoutPress} />
       </View>
     </SafeAreaView>
   );

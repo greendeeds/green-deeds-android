@@ -196,6 +196,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     marginTop: 20,
+    top: 50,
   },
   footerText: {
     fontSize: 16,
