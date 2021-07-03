@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { loginAction } from "../actions/AccountActions";
 import { firebase } from "../firebase/config";
 import { Buttons, Spacing, Typography } from "../Styles/index";
-import { Entypo } from '@expo/vector-icons';
+import { Entypo } from "@expo/vector-icons";
 
 import {
   StyleSheet,
@@ -18,7 +18,6 @@ import {
 } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 
-
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,6 +26,7 @@ const LoginScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const login = () => dispatch(loginAction());
   const register = () => navigation.navigate("Register");
+  const about = () => navigation.navigate("About");
 
   const onLoginPress = () => {
     firebase
@@ -62,65 +62,75 @@ const LoginScreen = ({ navigation }) => {
           <Text style={Typography.greenDeedsText}>Green Deeds</Text>
           <Text></Text>
         </View>
-        
+
         <View>
           <Text style={Typography.catchPhraseText}>Turn trash into gold!</Text>
           <Text></Text>
         </View>
-        
-        <View> 
+
+        <View>
           <TouchableOpacity onPress={() => navigation.navigate("About")}>
-            <Image source={require("../assets/Leaf-Logo.png")} style={styles.logo}/>
-          </TouchableOpacity>    
+            <Image
+              source={require("../assets/Leaf-Logo.png")}
+              style={styles.logo}
+            />
+          </TouchableOpacity>
         </View>
       </View>
 
       <View style={Spacing.loginContainer}>
         <View style={Spacing.textInputContainer}>
-          <TextInput placeholder="Username or email"
-          placeholderTextColor="gray"/>  
-        </View>  
-      
+          <TextInput
+            placeholder="E-mail"
+            placeholderTextColor="gray"
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+            underlineColorAndroid="transparent"
+            autoCapitalize="none"
+          />
+        </View>
+
         <View style={Spacing.textInputContainer}>
-          <TextInput placeholder="Password" 
-            placeholderTextColor="gray"/>
-        </View> 
-       
-        <TouchableOpacity style={Buttons.logInOutButton} onPress={login}>
-            <Text style={Typography.logInOutButtonText}>Log In  </Text>
-            <Entypo name="login" style={Typography.logInOutEntypo} />
+          <TextInput
+            placeholder="Password"
+            placeholderTextColor="gray"
+            secureTextEntry
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+            underlineColorAndroid="transparent"
+            autoCapitalize="none"
+          />
+        </View>
+
+        <TouchableOpacity style={Buttons.logInOutButton} onPress={onLoginPress}>
+          <Text style={Typography.logInOutButtonText}>Log In </Text>
+          <Entypo name="login" style={Typography.logInOutEntypo} />
         </TouchableOpacity>
       </View>
 
       <View style={Spacing.bottomNavContainer}>
         <View style={Spacing.bottomTextContainer}>
-          <Text style={Typography.defaultText}>Don't have an account?  </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+          <Text style={Typography.defaultText}>Don't have an account? </Text>
+          <TouchableOpacity onPress={register}>
             <Text style={Typography.linkText}>Register</Text>
-          </TouchableOpacity> 
+          </TouchableOpacity>
         </View>
         <View style={Spacing.bottomTextContainer}>
-            <Text>What is Green Deeds?  </Text>
-            <TouchableOpacity onPress={() => navigation.navigate("About")}>
-                <Text style={Typography.linkText}>Learn more here</Text>
-            </TouchableOpacity> 
+          <Text>What is Green Deeds? </Text>
+          <TouchableOpacity>
+            <Text style={Typography.linkText}>Learn more here</Text>
+          </TouchableOpacity>
         </View>
       </View>
-
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-
   logo: {
     width: 300,
     height: 300,
-
   },
-
-
-
 });
 
 export default LoginScreen;
