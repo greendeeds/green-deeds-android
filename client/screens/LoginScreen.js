@@ -69,7 +69,7 @@ const LoginScreen = ({ navigation }) => {
         </View>
 
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate("About")}>
+          <TouchableOpacity>
             <Image
               source={require("../assets/Leaf-Logo.png")}
               style={styles.logo}
