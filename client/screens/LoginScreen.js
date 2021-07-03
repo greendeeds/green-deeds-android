@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { loginAction } from "../actions/AccountActions";
 import { firebase } from "../firebase/config";
+import { Buttons, Spacing, Typography } from "../Styles/index";
+import { Entypo } from '@expo/vector-icons';
 
 import {
   StyleSheet,
@@ -15,6 +17,7 @@ import {
   Platform,
 } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -53,109 +56,71 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.background}>
-      <View style={styles.logoContainer}>
-        <Image source={require("../assets/Logo.png")} style={styles.logo} />
-        <Text style={styles.logoText}>Turn trash into gold!</Text>
+    <SafeAreaView style={Spacing.backgroundContainer}>
+      <View style={Spacing.logoContainer}>
+        <View>
+          <Text style={Typography.greenDeedsText}>Green Deeds</Text>
+          <Text></Text>
+        </View>
+        
+        <View>
+          <Text style={Typography.catchPhraseText}>Turn trash into gold!</Text>
+          <Text></Text>
+        </View>
+        
+        <View> 
+          <TouchableOpacity onPress={() => navigation.navigate("About")}>
+            <Image source={require("../assets/Leaf-Logo.png")} style={styles.logo}/>
+          </TouchableOpacity>    
+        </View>
       </View>
 
-      <View style={styles.loginContainer}>
-        <ScrollView>
-          <TextInput
-            style={styles.input}
-            placeholder="E-mail"
-            placeholderTextColor="#aaaaaa"
-            onChangeText={(text) => setEmail(text)}
-            value={email}
-            underlineColorAndroid="transparent"
-            autoCapitalize="none"
-          />
-          <TextInput
-            style={styles.input}
-            placeholderTextColor="#aaaaaa"
-            secureTextEntry
-            placeholder="Password"
-            onChangeText={(text) => setPassword(text)}
-            value={password}
-            underlineColorAndroid="transparent"
-            autoCapitalize="none"
-          />
-
-          <TouchableOpacity style={styles.loginButton} onPress={onLoginPress}>
-            <Text style={styles.loginText}>Login</Text>
-          </TouchableOpacity>
-          <View style={styles.registerContainer}>
-            <Text style={styles.registerText}>
-              Don't have an account?{" "}
-              <Text onPress={register} style={styles.registerLink}>
-                Register
-              </Text>
-            </Text>
-          </View>
-        </ScrollView>
+      <View style={Spacing.loginContainer}>
+        <View style={Spacing.textInputContainer}>
+          <TextInput placeholder="Username or email"
+          placeholderTextColor="gray"/>  
+        </View>  
+      
+        <View style={Spacing.textInputContainer}>
+          <TextInput placeholder="Password" 
+            placeholderTextColor="gray"/>
+        </View> 
+       
+        <TouchableOpacity style={Buttons.logInOutButton} onPress={login}>
+            <Text style={Typography.logInOutButtonText}>Log In  </Text>
+            <Entypo name="login" style={Typography.logInOutEntypo} />
+        </TouchableOpacity>
       </View>
+
+      <View style={Spacing.bottomNavContainer}>
+        <View style={Spacing.bottomTextContainer}>
+          <Text style={Typography.defaultText}>Don't have an account?  </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+            <Text style={Typography.linkText}>Register</Text>
+          </TouchableOpacity> 
+        </View>
+        <View style={Spacing.bottomTextContainer}>
+            <Text>What is Green Deeds?  </Text>
+            <TouchableOpacity onPress={() => navigation.navigate("About")}>
+                <Text style={Typography.linkText}>Learn more here</Text>
+            </TouchableOpacity> 
+        </View>
+      </View>
+
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  background: {
-    backgroundColor: "#27ce7f",
-    flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
+
   logo: {
     width: 300,
     height: 300,
+
   },
-  logoText: {
-    color: "#e4a914",
-    fontSize: 36,
-  },
-  logoContainer: {
-    position: "absolute",
-    top: 5,
-    alignItems: "center",
-  },
-  input: {
-    width: 350,
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-    borderRadius: 10,
-  },
-  loginButton: {
-    height: 40,
-    backgroundColor: "#0052ff",
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  loginText: {
-    color: "white",
-    fontSize: 18,
-  },
-  loginContainer: {
-    position: "absolute",
-    top: 350,
-    height: 200,
-    justifyContent: "space-around",
-  },
-  registerText: {
-    fontSize: 16,
-    top: 10,
-  },
-  registerContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    height: 40,
-  },
-  registerLink: {
-    color: "#788eec",
-    fontWeight: "bold",
-    fontSize: 16,
-  },
+
+
+
 });
 
 export default LoginScreen;
