@@ -20,6 +20,8 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { StyleSheet, Image } from "react-native";
 
+import { Colors } from "./Styles/index";
+
 const Stack = createStackNavigator();
 
 const Navigator = () => {
@@ -48,8 +50,9 @@ const Navigator = () => {
               name="Login"
               component={LoginScreen}
               options={{
-                title: "GreenDeeds",
+                title: "Log In",
                 animationTypeForReplace: "pop",
+                headerStyle: { backgroundColor: Colors.PRIMARY }, //"#50ED0D" "#0FA429"
               }}
             />
             <Stack.Screen name="Register" component={RegisterScreen} />
