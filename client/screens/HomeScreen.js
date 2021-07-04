@@ -11,7 +11,11 @@ const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const logout = () => dispatch(logoutAction());
-  const compost = () => navigation.navigate("Compost");
+  const compost = () =>
+    navigation.navigate("Compost", {
+      redeemableAmount: "0.00",
+      composted: 0,
+    });
   const recycle = () => navigation.navigate("Recycle");
   const celo = () => navigation.navigate("Celo");
 

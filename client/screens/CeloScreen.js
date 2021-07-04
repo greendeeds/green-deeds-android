@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "../global";
 import { web3, kit } from "../root";
 import {
@@ -11,6 +11,7 @@ import {
   View,
   LogBox,
   ScrollView,
+  Linking,
 } from "react-native";
 import {
   requestTxSig,
@@ -20,7 +21,7 @@ import {
   FeeCurrency,
 } from "@celo/dappkit";
 import { toTxResult } from "@celo/connect";
-import * as Linking from "expo-linking";
+import * as expoLinking from "expo-linking";
 import FaucetContract from "../contracts/Faucet.json";
 
 import OpenURLButton from "../components/OpenURLButton";
@@ -120,7 +121,7 @@ export default class CeloScreen extends React.Component {
     console.log("donateToFaucet()");
     const requestId = "donate_celo";
     const dappName = "Green Deeds";
-    const callback = Linking.makeUrl("/my/path");
+    const callback = expoLinking.makeUrl("/my/path");
 
     let amount = parseFloat(this.state.donateAmount);
     let weiAmount = BigNumber(amount * 10e17);
@@ -166,7 +167,7 @@ export default class CeloScreen extends React.Component {
 
     const requestId = "withdraw_cUSD";
     const dappName = "Green Deeds";
-    const callback = Linking.makeUrl("/my/path");
+    const callback = expoLinking.makeUrl("/my/path");
 
     // convert user amount to wei in bignumber format
     let amount = parseFloat(this.state.withdrawAmount);
@@ -204,7 +205,9 @@ export default class CeloScreen extends React.Component {
       `Faucet contract update transaction receipt: `,
       result.transactionHash
     );
-    Alert.alert("Transaction Complete!", `Tx Hash: ${result.transactionHash}`);
+    Alert.alert("Transaction Complete!", `Tx Hash: ${result.transactionHash}`, [
+      { text: "Continue", onPress: () => this.BusinessAlertPrompt() },
+    ]);
     this.getFaucetInfo();
     this.getUserBalance();
     this.setState({ withdrawAmount: "0" });
@@ -215,7 +218,7 @@ export default class CeloScreen extends React.Component {
 
     const requestId = "withdraw_cGLD";
     const dappName = "Green Deeds";
-    const callback = Linking.makeUrl("/my/path");
+    const callback = expoLinking.makeUrl("/my/path");
 
     // convert user amount to wei in bignumber format
     let amount = parseFloat(this.state.withdrawAmount);
@@ -253,7 +256,9 @@ export default class CeloScreen extends React.Component {
       `Faucet contract update transaction receipt: `,
       result.transactionHash
     );
-    Alert.alert("Transaction Complete!", `Tx Hash: ${result.transactionHash}`);
+    Alert.alert("Transaction Complete!", `Tx Hash: ${result.transactionHash}`, [
+      { text: "Continue", onPress: () => this.BusinessAlertPrompt() },
+    ]);
     this.getFaucetInfo();
     this.getUserBalance();
     this.setState({ withdrawAmount: "0" });
@@ -272,6 +277,10 @@ export default class CeloScreen extends React.Component {
       exchangeRate,
     });
   };
+  openUbeswapExchange = async () => {
+    console.log("Ubeswap exchange");
+    Linking.openURL("https://app-alfajores.ubeswap.org/");
+  };
 
   login = async () => {
     // A string you can pass to DAppKit, that you can use to listen to the response for that request
@@ -281,7 +290,7 @@ export default class CeloScreen extends React.Component {
     const dappName = "Green Deeds";
 
     // The deeplink that the Celo Wallet will use to redirect the user back to the DApp with the appropriate payload.
-    const callback = Linking.makeUrl("/my/path");
+    const callback = expoLinking.makeUrl("/my/path");
 
     // Ask the Celo Alfajores Wallet for user info
     requestAccountAddress({
@@ -350,6 +359,24 @@ export default class CeloScreen extends React.Component {
 
   onChangeDonate = async (number) => {
     this.setState({ donateAmount: number });
+  };
+
+  BusinessAlertPrompt = async () => {
+    console.log("Business Alert triggered");
+
+    Alert.alert(
+      "Are you a business? ",
+      "Exchange your cUSD for cMC02, Celo Moss Carbon Credit.",
+      [
+        {
+          text: "Exchange",
+          onPress: () => Linking.openURL("https://app-alfajores.ubeswap.org/"),
+        },
+        {
+          text: "Keep my cUSD",
+        },
+      ]
+    );
   };
 
   render() {
