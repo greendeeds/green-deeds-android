@@ -8,7 +8,7 @@ Please see the [compost-user-flow](https://github.com/greendeeds/green-deeds-and
 
 A detailed process of how we would turn food waste into compost into rewards please see our GreenNFT submission [here](https://github.com/bdev07/green-deeds-regen-iris-nft).
 
-[GNU License] (https://github.com/greendeeds/green-deeds-android/blob/master/COPYING.txt)
+[GNU License](https://github.com/greendeeds/green-deeds-android/blob/master/COPYING.txt)
 
 ## Green Deeds potential for impact:
 
