@@ -41,6 +41,78 @@ const Spacing = {
         justifyContent: "center",
     },
 
+
+// HOME SCREEN
+    topContainer: {
+      height: "30%",
+      width: "100%",
+      backgroundColor: Colors.WHITE,
+      justifyContent: "space-evenly",
+      alignItems: "center",
+    },
+
+    childToptext: {
+        height: "20%",
+        backgroundColor: Colors.WHITE,
+        alignItems: "center", 
+        justifyContent: "center",
+        paddingBottom: "8%",
+        
+    },    
+
+    childTopbuttons: {
+        height: "15%",
+        backgroundColor: Colors.WHITE,
+        flexDirection: "row",
+        alignItems: "center", 
+        justifyContent: "center",
+      },
+
+      childCelo: {
+        height: "10%",
+        width: "100%",
+        backgroundColor: Colors.WHITE,
+        justifyContent: "center",
+       
+      },
+    
+      childCeloButton: {
+        height: "15%",
+        width: "100%",
+        backgroundColor: Colors.WHITE,
+        flexDirection: "row",
+        alignItems: "center", 
+        justifyContent: "center",
+      },
+    
+      childDifference: {
+        height: "10%",
+        width: "100%",
+        backgroundColor: Colors.WHITE,
+        justifyContent: "center",
+        alignItems: "center",
+       
+      }, 
+    
+      childDifferenceButton: {
+        height: "15%",
+        width: "100%",
+        backgroundColor: Colors.WHITE,
+        flexDirection: "row",
+        alignItems: "center", 
+        justifyContent: "center",
+      },
+    
+      childLogout: {
+        height: "10%",
+        width: "100%",
+        backgroundColor: Colors.WHITE,
+        alignItems: "center", 
+        justifyContent: "flex-end",
+        //paddingBottom: "5%",
+      },
+    
+
 ////////////////////////////////////
 // THE LESSER CHILDREN
 ////////////////////////////////////
