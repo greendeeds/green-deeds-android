@@ -33,6 +33,7 @@ const LoginScreen = ({ navigation }) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
+        console.log(response);
         const uid = response.user.uid;
         const usersRef = firebase.firestore().collection("users");
         usersRef
@@ -47,10 +48,12 @@ const LoginScreen = ({ navigation }) => {
             login();
           })
           .catch((error) => {
+            console.log("err: ", error);
             alert(error);
           });
       })
       .catch((error) => {
+        console.log("ERROR:: ", email, password, err);
         alert(error);
       });
   };
@@ -71,7 +74,7 @@ const LoginScreen = ({ navigation }) => {
         <View>
           <TouchableOpacity>
             <Image
-              source={require("../assets/Leaf-Logo.png")}
+              // source={require("../assets/Leaf-Logo.png")}
               style={styles.logo}
             />
           </TouchableOpacity>
@@ -102,7 +105,7 @@ const LoginScreen = ({ navigation }) => {
           />
         </View>
 
-        <TouchableOpacity style={Buttons.logInOutButton} onPress={onLoginPress}>
+        <TouchableOpacity style={Buttons.logInOutButton} onPress={login}>
           <Text style={Typography.logInOutButtonText}>Log In </Text>
           <Entypo name="login" style={Typography.logInOutEntypo} />
         </TouchableOpacity>

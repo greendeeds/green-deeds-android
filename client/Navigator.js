@@ -14,6 +14,7 @@ import RecycleScreen from "./screens/RecycleScreen";
 import CompostScreen from "./screens/CompostScreen";
 import CameraScreen from "./screens/CameraScreen";
 import CeloScreen from "./screens/CeloScreen";
+import ConfirmPhotoScreen from "./screens/ConfirmPhotoScreen";
 
 import { StackRouter } from "react-navigation";
 import { NavigationContainer } from "@react-navigation/native";
@@ -43,6 +44,7 @@ const Navigator = () => {
             <Stack.Screen name="Compost" component={CompostScreen} />
             <Stack.Screen name="Camera" component={CameraScreen} />
             <Stack.Screen name="Celo" component={CeloScreen} />
+            <Stack.Screen name="ConfirmPhoto" component={ConfirmPhotoScreen} />
           </>
         ) : (
           <>
