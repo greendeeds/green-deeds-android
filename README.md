@@ -6,6 +6,8 @@
 
 Please see the [compost-user-flow](https://github.com/greendeeds/green-deeds-android/tree/compost-user-flow) branch for the SNI hack compost walkthrough.
 
+A detailed process of how we would turn food waste into compost into rewards please see our GreenNFT submission [here](https://github.com/bdev07/green-deeds-regen-iris-nft).
+
 ## Green Deeds potential for impact:
 
 Green Deeds hopes to revolutionize how we think about food waste and plastics by creating an efficient decentralized recycling of resources.
