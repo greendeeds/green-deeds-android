@@ -35,6 +35,7 @@ const Navigator = () => {
             <Stack.Screen
               options={{
                 animationTypeForReplace: "push",
+                headerStyle: { backgroundColor: Colors.PRIMARY }
               }}
               name="Home"
               component={HomeScreen}
