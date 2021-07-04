@@ -2,6 +2,10 @@
 
 # Green Deeds
 
+## SNI Hackathon:
+
+Please see the [compost-user-flow](https://github.com/greendeeds/green-deeds-android/tree/compost-user-flow) branch for the SNI hack compost walkthrough.
+
 ## Green Deeds potential for impact:
 
 Green Deeds hopes to revolutionize how we think about food waste and plastics by creating an efficient decentralized recycling of resources.
