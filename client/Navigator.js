@@ -39,6 +39,7 @@ const Navigator = () => {
               }}
               name="Home"
               component={HomeScreen}
+              options={{ exchanged: false }}
             />
             <Stack.Screen name="Recycle" component={RecycleScreen} />
             <Stack.Screen name="Compost" component={CompostScreen} />

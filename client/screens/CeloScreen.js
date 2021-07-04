@@ -65,6 +65,7 @@ export default class CeloScreen extends React.Component {
       ? this.props.route.params.redeemableAmount
       : "0",
     isLoadingBalance: false,
+    exchanged: false,
   };
 
   // initialize contracts
@@ -92,6 +93,16 @@ export default class CeloScreen extends React.Component {
     this.setState({
       faucetContract: faucetContractInstance,
     });
+  };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    // console.log(this.state);
+    // console.log("prev: ", prevState);
+    if (prevState.exchanged !== this.state.exchanged) {
+      if (this.state.exchanged === true) {
+        this.props.navigation.navigate("Home", { exchanged: true });
+      }
+    }
   };
 
   componentWillUnmount = () => {
@@ -280,6 +291,7 @@ export default class CeloScreen extends React.Component {
   openUbeswapExchange = async () => {
     console.log("Ubeswap exchange");
     Linking.openURL("https://app-alfajores.ubeswap.org/");
+    this.setState({ exchanged: true });
   };
 
   login = async () => {
@@ -363,6 +375,7 @@ export default class CeloScreen extends React.Component {
 
   BusinessAlertPrompt = async () => {
     console.log("Business Alert triggered");
+    this.setState({ exchanged: true });
 
     Alert.alert(
       "Are you a business? ",
