@@ -13,6 +13,10 @@ import { Buttons, Spacing, Typography } from "../Styles/index";
 import { Camera } from "expo-camera";
 import { NavigationContainer } from "@react-navigation/native";
 
+import exampleCompostImage from "../assets/foodwaste.jpg";
+const exampleCompostImageUri =
+  Image.resolveAssetSource(exampleCompostImage).uri;
+
 // import * as ImagePicker from "expo-image-picker";
 
 export default function CameraScreen({ navigation }) {
@@ -51,13 +55,12 @@ export default function CameraScreen({ navigation }) {
   // }, []);
 
   const takePicture = async () => {
-    console.log("take picture pressed.");
     if (cameraRef) {
-      let photo = await cameraRef.takePictureAsync();
+      // let photo = await cameraRef.takePictureAsync();
       setShowCamera(false);
       setShowConfirmPhoto(true);
-      console.log("photo", photo);
-      setPhotoPath(photo.uri);
+      // setPhotoPath(photo.uri);
+      setPhotoPath(exampleCompostImageUri);
       setImage(true);
       setComposted(3);
       setRedeemableAmount("0.35");
@@ -82,8 +85,6 @@ export default function CameraScreen({ navigation }) {
   // };
 
   const confirmPhoto = () => {
-    console.log("confirm pressed ");
-
     navigation.navigate("Compost", {
       redeemableAmount: redeemableAmount,
       composted: composted,

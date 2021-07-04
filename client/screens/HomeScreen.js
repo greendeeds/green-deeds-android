@@ -10,7 +10,6 @@ const HomeScreen = ({ navigation, route }) => {
   const loggedIn = useSelector((state) => state.AccountReducer.loggedIn);
   const dispatch = useDispatch();
   const [exchanged, setExchanged] = useState(false);
-  console.log(exchanged);
 
   useEffect(() => {
     if (route && route.params && route.params.exchanged)
@@ -21,7 +20,7 @@ const HomeScreen = ({ navigation, route }) => {
         "Congratulations!",
         "You just earned carbon credits for your business and helped Green Deeds in the process!  Good job, Deeder!"
       );
-      setExchanged(false);
+      // setExchanged(false);
     }
   }, [route]);
 

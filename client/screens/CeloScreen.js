@@ -96,8 +96,6 @@ export default class CeloScreen extends React.Component {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    // console.log(this.state);
-    // console.log("prev: ", prevState);
     if (prevState.exchanged !== this.state.exchanged) {
       if (this.state.exchanged === true) {
         this.props.navigation.navigate("Home", { exchanged: true });
@@ -374,7 +372,6 @@ export default class CeloScreen extends React.Component {
   };
 
   BusinessAlertPrompt = async () => {
-    console.log("Business Alert triggered");
     this.setState({ exchanged: true });
 
     Alert.alert(

@@ -10,8 +10,6 @@ export default function CompostScreen({ navigation, route }) {
   const celo = () =>
     navigation.navigate("Celo", { redeemableAmount: redeemableAmount });
 
-  // const ref = useRef();
-
   //watch states for changes from camera screen
   useEffect(() => {
     console.log("useEffect ", route.params);
@@ -33,9 +31,6 @@ export default function CompostScreen({ navigation, route }) {
   const scanPressed = () => {
     photo();
   };
-
-  console.log(navigation);
-  console.log(route);
   return (
     <SafeAreaView>
       <Button title="Scan Receipt" onPress={scanPressed} />

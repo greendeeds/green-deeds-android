@@ -18,6 +18,9 @@ import {
 } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 
+import logo from "../assets/check-logo.png";
+const logoUri = Image.resolveAssetSource(logo).uri;
+
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -73,10 +76,7 @@ const LoginScreen = ({ navigation }) => {
 
         <View>
           <TouchableOpacity>
-            <Image
-              // source={require("../assets/Leaf-Logo.png")}
-              style={styles.logo}
-            />
+            <Image source={{ uri: logoUri }} style={styles.logo} />
           </TouchableOpacity>
         </View>
       </View>
