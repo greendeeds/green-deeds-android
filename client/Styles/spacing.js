@@ -1,5 +1,6 @@
 // S P A C I N G 
 
+import { color } from 'react-native-reanimated';
 import Colors from './colors';
 
 const Spacing = {
@@ -18,8 +19,8 @@ const Spacing = {
         height: "60%",
         width: "100%",
         backgroundColor: Colors.WHITE,
-        justifyContent: "space-evenly", 
         alignItems: "center",
+        justifyContent: "space-evenly", 
         paddingTop: "15%",
     },
 
@@ -41,8 +42,9 @@ const Spacing = {
         justifyContent: "center",
     },
 
-
+///////////////////////////
 // HOME SCREEN
+///////////////////////////
     topContainer: {
       height: "30%",
       width: "100%",
@@ -56,8 +58,7 @@ const Spacing = {
         backgroundColor: Colors.WHITE,
         alignItems: "center", 
         justifyContent: "center",
-        paddingBottom: "8%",
-        
+        paddingBottom: "8%",  
     },    
 
     childTopbuttons: {
@@ -73,7 +74,6 @@ const Spacing = {
         width: "100%",
         backgroundColor: Colors.WHITE,
         justifyContent: "center",
-       
       },
     
       childCeloButton: {
@@ -90,8 +90,7 @@ const Spacing = {
         width: "100%",
         backgroundColor: Colors.WHITE,
         justifyContent: "center",
-        alignItems: "center",
-       
+        alignItems: "center", 
       }, 
     
       childDifferenceButton: {
@@ -112,10 +111,7 @@ const Spacing = {
         //paddingBottom: "5%",
       },
     
-
-////////////////////////////////////
 // THE LESSER CHILDREN
-////////////////////////////////////
     // lines up text and clickables in bottomNavContainer
     bottomTextContainer: {
         flexDirection: "row",
@@ -136,7 +132,55 @@ const Spacing = {
         paddingTop: 2,
     },
 
-  
+///////////////////////////////
+  // ABOUT SCREEN
+///////////////////////////////
+  // holds text  
+  topTextContainer: {
+    height: "30%",
+    width: "100%",
+    backgroundColor: Colors.WHITE, 
+  },
+
+    // holds logo
+  midContainer: {
+    height: "60%",
+    width: "100%",
+    backgroundColor: Colors.WHITE, 
+    flexDirection: "row",
+    justifyContent: "center",
+  }, 
+
+//////////////////////////////
+// REGISTER SCREEN
+//////////////////////////////
+    
+  regLogoContainer: {
+    height: "35%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  headingContainer: {
+    height: "10%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },  
+
+    registerContainer: {
+    height: "45%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingTop: "2%",
+  },
+
+
 };
 
 export default Spacing

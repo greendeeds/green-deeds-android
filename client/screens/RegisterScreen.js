@@ -3,17 +3,8 @@ import React, { useState } from "react";
 import { loginAction } from "../actions/AccountActions";
 import { firebase } from "../firebase/config";
 
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  ImageBackground,
-  Image,
-  SafeAreaView,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from "react-native";
+import { Buttons, Spacing, Typography } from "../Styles";
 
 // import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 
@@ -64,10 +55,22 @@ const RegisterScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.background}>
-      <View style={styles.registerContainer}>
+    <SafeAreaView style={Spacing.backgroundContainer}>
+      <View style={Spacing.headingContainer}>
+        <Text style={Typography.greenDeedsText}>Green Deeds</Text>
+      </View>
+
+      <View style={Spacing.regLogoContainer}>
+        <Image
+            source={require("../assets/check-logo.png")}
+            style={styles.logo}
+          />
+      </View>
+      
+      <View style={Spacing.registerContainer}>
+        <Text style={Typography.registerHeaderText}>Enter your information, below, then click "Create Account" to complete registration!</Text>
         <TextInput
-          style={styles.input}
+          style={Spacing.textInputContainer}
           placeholder="Full Name"
           placeholderTextColor="#aaaaaa"
           onChangeText={(text) => setFullName(text)}
@@ -76,7 +79,7 @@ const RegisterScreen = ({ navigation }) => {
           autoCapitalize="none"
         />
         <TextInput
-          style={styles.input}
+          style={Spacing.textInputContainer}
           placeholder="E-mail"
           placeholderTextColor="#aaaaaa"
           onChangeText={(text) => setEmail(text)}
@@ -85,7 +88,7 @@ const RegisterScreen = ({ navigation }) => {
           autoCapitalize="none"
         />
         <TextInput
-          style={styles.input}
+          style={Spacing.textInputContainer}
           placeholderTextColor="#aaaaaa"
           secureTextEntry
           placeholder="Password"
@@ -94,8 +97,9 @@ const RegisterScreen = ({ navigation }) => {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
+
         <TextInput
-          style={styles.input}
+          style={Spacing.textInputContainer}
           placeholderTextColor="#aaaaaa"
           secureTextEntry
           placeholder="Confirm Password"
@@ -104,109 +108,37 @@ const RegisterScreen = ({ navigation }) => {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
+
         <TouchableOpacity
-          style={styles.button}
+          style={Buttons.logInOutButton}
           onPress={() => onRegisterPress()}
         >
-          <Text style={styles.buttonTitle}>Create account</Text>
+          <Text style={Typography.logInOutButtonText}>Create Account</Text>
         </TouchableOpacity>
-        <View style={styles.footerView}>
-          <Text style={styles.footerText}>
+      </View>
+
+
+      <View style={Spacing.bottomNavContainer}>
+        <View style={Spacing.bottomTextContainer}>
+          <Text style={Typography.defaultText}>
             Already have an account?{" "}
-            <Text onPress={onFooterLinkPress} style={styles.footerLink}>
+            <Text onPress={onFooterLinkPress} style={Typography.linkText}>
               Log in
             </Text>
           </Text>
         </View>
       </View>
+      
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  background: {
-    backgroundColor: "#27ce7f",
-    flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
-  input: {
-    width: 350,
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-    borderRadius: 10,
-  },
-  registerButton: {
-    height: 40,
-    backgroundColor: "#0052ff",
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  registerText: {
-    color: "white",
-    fontSize: 18,
-  },
-  registerContainer: {
-    position: "absolute",
-    top: 100,
-    height: 150,
-    justifyContent: "space-around",
-  },
-  container: {
-    flex: 1,
-    alignItems: "center",
-  },
-  title: {},
   logo: {
-    flex: 1,
-    height: 120,
-    width: 90,
-    alignSelf: "center",
-    margin: 30,
+    width:200,
+    height: 200,
   },
-  input: {
-    height: 48,
-    borderRadius: 5,
-    overflow: "hidden",
-    backgroundColor: "white",
-    marginTop: 10,
-    marginBottom: 10,
-    marginLeft: 30,
-    marginRight: 30,
-    paddingLeft: 16,
-  },
-  button: {
-    backgroundColor: "#788eec",
-    marginLeft: 30,
-    marginRight: 30,
-    marginTop: 20,
-    height: 48,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  buttonTitle: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  footerView: {
-    flex: 1,
-    alignItems: "center",
-    marginTop: 20,
-    top: 50,
-  },
-  footerText: {
-    fontSize: 16,
-    color: "#2e2e2d",
-  },
-  footerLink: {
-    color: "#788eec",
-    fontWeight: "bold",
-    fontSize: 16,
-  },
+ 
 });
 
 export default RegisterScreen;

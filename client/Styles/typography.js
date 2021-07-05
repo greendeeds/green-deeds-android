@@ -9,7 +9,7 @@ const Typography = {
     color: Colors.BLACK,
   },
 
-  // login screen - title
+  // login screen title - GREEN DEEDS
   greenDeedsText: {
     fontSize: 36,
     fontFamily: 'sans-serif-medium',
@@ -19,8 +19,19 @@ const Typography = {
   // login screen - turn trash into Gold!
   catchPhraseText: {
     fontSize: 22,
-    fontFamily: "sans-serif",
+    fontFamily: "sans-serif-medium",
     color: Colors.SECONDARY, 
+  },
+
+  // register screen
+  registerHeaderText: {
+    color: Colors.BLACK,
+    fontSize: 18,
+    fontFamily: "sans-serif", 
+    textAlign: "center",
+    marginHorizontal: "4%",
+    marginBottom: "2%",
+    
   },
 
   // home screen
@@ -51,6 +62,13 @@ const Typography = {
     color: Colors.BLACK,
     fontSize: 16,
     fontFamily: "sans-serif",
+  },
+
+// About Screen
+  generalText: {
+    fontSize: 16,
+    fontFamily: 'sans-serif',
+    color: Colors.BLACK,
   },
 
 // VECTOR ICONS
