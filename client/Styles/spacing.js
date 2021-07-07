@@ -5,16 +5,18 @@ import Colors from './colors';
 
 const Spacing = {
     
-    // parent for everything on the screen
+// parent for everything on the screen
     backgroundContainer: {
         backgroundColor: Colors.WHITE,
         justifyContent: "flex-end",
         alignItems: "center",
         flex: 1,
     },
-//////////////////////
-// HOME SCREEN V2.0
-/////////////////////
+
+    
+//////////////////////////////
+// HOME //
+//////////////////////////////
   bannerContainer: {
     height: "90%",
     width: "100%",
@@ -49,6 +51,58 @@ const Spacing = {
     height: 40,
     width: 40,
   },
+
+/////////////////////////
+// | RECYCLE | COMPOST //
+/////////////////////////
+
+//top of screen logo
+  topLogo: {
+    height: "25%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+
+
+//top of screen click to scan receipt
+  sectionOneScan: {
+    height: "20%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+    
+  },
+
+// header plus scan results
+  sectionTwoScan: {
+    height: "20%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+    //justifyContent: "center",
+  },
+
+  scanResults: {
+    height: 75,
+    width: 375,
+    alignSelf: "center",
+    justifyContent: "center",
+    borderRadius: 2.5,
+    marginVertical: 2,
+    backgroundColor: Colors.SECONDARYlite,
+    elevation: 4,
+    //margin: 5.6, 
+  },
+
+  sectionThreeScan: {
+    height: "20%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+    justifyContent: "center",
+    paddingBottom: "5%",
+  },
+
 
 
 /////////////////////////

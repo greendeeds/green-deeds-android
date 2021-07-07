@@ -34,7 +34,7 @@ const Typography = {
     
   },
 
-  // home screen
+  // home | recycle | compost
   headerText: {
     color: Colors.BLACK,
     fontSize: 22,
@@ -69,6 +69,14 @@ const Typography = {
     fontSize: 16,
     fontFamily: 'sans-serif',
     color: Colors.BLACK,
+  },
+
+// Recycle & Compost Screens
+  quantityText: {
+    fontSize: 18,
+    fontFamily: 'sans-serif',
+    color: Colors.BLACK,
+    marginLeft: "5%",
   },
 
 // VECTOR ICONS
