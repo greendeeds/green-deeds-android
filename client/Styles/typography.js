@@ -37,12 +37,12 @@ const Typography = {
   // home screen
   headerText: {
     color: Colors.BLACK,
-    fontSize: 36,
+    fontSize: 22,
     fontFamily: "sans-serif-medium", 
     textAlign: "center",
-    marginTop: "15%",
-    marginBottom: "10%",
+    marginLeft: "5%",
   },
+
 
   // underlines clickable text
   linkText: {
@@ -80,7 +80,7 @@ const Typography = {
 
   roundButtonEntypo: {
     fontSize: 24,
-    color: Colors.SECONDARY,
+    color: Colors.PRIMARY,
   },
 
 

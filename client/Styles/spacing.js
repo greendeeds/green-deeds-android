@@ -8,11 +8,50 @@ const Spacing = {
     // parent for everything on the screen
     backgroundContainer: {
         backgroundColor: Colors.WHITE,
-        justifyContent: "center",
+        justifyContent: "flex-end",
         alignItems: "center",
         flex: 1,
     },
+//////////////////////
+// HOME SCREEN V2.0
+/////////////////////
+  bannerContainer: {
+    height: "90%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+    justifyContent: "space-evenly",
+    alignItems: "center", 
+  },   
 
+  //first header and banners
+  sectionOne: {
+    height: "50%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+    marginTop: "5%",
+  },
+
+  //second header and banner
+  sectionTwo: {
+    height: "20%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+   },
+
+  //third header and banner
+  sectionThree: {
+    height: "20%",
+    width: "100%",
+    backgroundColor: Colors.WHITE,
+  },
+
+  celoLogo: {
+    height: 40,
+    width: 40,
+  },
+
+
+/////////////////////////
 // LOGIN SCREEN CONTAINERS
     // top of screen/logo
     logoContainer: {
@@ -40,10 +79,11 @@ const Spacing = {
         width: "100%",
         backgroundColor: Colors.PRIMARY,
         justifyContent: "center",
+        
     },
 
 ///////////////////////////
-// HOME SCREEN
+// HOME SCREEN V1.0
 ///////////////////////////
     topContainer: {
       height: "30%",
