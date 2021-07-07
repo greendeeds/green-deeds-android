@@ -7,7 +7,7 @@ const Buttons = {
   logInOutButton: {
     width: 290,
     height: 37,
-    marginTop: 7,
+    marginTop: 10,
     backgroundColor: Colors.TERTIARY,
     borderRadius: 3,
     flexDirection: "row",
@@ -15,7 +15,7 @@ const Buttons = {
     alignItems: "center",
     borderColor: Colors.TERTIARYdark,
     borderBottomWidth: 2,
-    borderRightWidth: 1,
+    borderRightWidth: 2,
   },
 
   standardRoundButton: {

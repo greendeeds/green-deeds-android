@@ -60,18 +60,16 @@ const LoginScreen = ({ navigation }) => {
       <View style={Spacing.logoContainer}>
         <View>
           <Text style={Typography.greenDeedsText}>Green Deeds</Text>
-          <Text></Text>
         </View>
 
         <View>
           <Text style={Typography.catchPhraseText}>Turn trash into gold!</Text>
-          <Text></Text>
         </View>
 
-        <View>
+        <View style={{ paddingTop: "4%" }}>
           <TouchableOpacity>
             <Image
-              source={require("../assets/Leaf-Logo.png")}
+              source={require("../assets/check-logo.png")}
               style={styles.logo}
             />
           </TouchableOpacity>
@@ -117,7 +115,7 @@ const LoginScreen = ({ navigation }) => {
         </View>
         <View style={Spacing.bottomTextContainer}>
           <Text>What is Green Deeds? </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={about}>
             <Text style={Typography.linkText}>Learn more here</Text>
           </TouchableOpacity>
         </View>
@@ -128,8 +126,8 @@ const LoginScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   logo: {
-    width: 300,
-    height: 300,
+    width:250,
+    height: 250,
   },
 });
 

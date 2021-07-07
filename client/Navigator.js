@@ -7,6 +7,7 @@ import AccountReducer from "./reducers/AccountReducer";
 
 //Navigation
 import { createStackNavigator } from "@react-navigation/stack";
+import AboutScreen from "./screens/AboutScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import HomeScreen from "./screens/HomeScreen";
@@ -18,7 +19,7 @@ import CeloScreen from "./screens/CeloScreen";
 import { StackRouter } from "react-navigation";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, ColorPropType } from "react-native";
 
 import { Colors } from "./Styles/index";
 
@@ -40,10 +41,19 @@ const Navigator = () => {
               name="Home"
               component={HomeScreen}
             />
-            <Stack.Screen name="Recycle" component={RecycleScreen} />
-            <Stack.Screen name="Compost" component={CompostScreen} />
             <Stack.Screen name="Camera" component={CameraScreen} />
-            <Stack.Screen name="Celo" component={CeloScreen} />
+
+            <Stack.Screen name="Celo" component={CeloScreen} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              />
+
+            <Stack.Screen name="Compost" component={CompostScreen} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              />
+
+            <Stack.Screen name="Recycle" component={RecycleScreen} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              />
           </>
         ) : (
           <>
@@ -56,7 +66,13 @@ const Navigator = () => {
                 headerStyle: { backgroundColor: Colors.PRIMARY }, //"#50ED0D" "#0FA429"
               }}
             />
-            <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="Register" component={RegisterScreen}
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              />
+
+            <Stack.Screen name="About" component={AboutScreen} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              />
           </>
         )}
       </Stack.Navigator>

@@ -63,7 +63,7 @@ const HomeScreen = ({ navigation }) => {
       <View style={Spacing.childDifferenceButton}>
         <TouchableOpacity >  
             <Image
-              source={require("../assets/Leaf-Logo.png")}
+              source={require("../assets/check-logo.png")}
               style={Buttons.celoRingsLogo}
             />
         </TouchableOpacity>
