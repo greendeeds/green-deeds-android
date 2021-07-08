@@ -1,6 +1,7 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
 import ActivityBanner from "../components/ActivityBanner";
+import ScanBanner from "../components/ScanBanner";
 import { Entypo } from '@expo/vector-icons';
 import { Spacing, Typography } from "../Styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -41,9 +42,8 @@ export default class CompostScreen extends React.Component {
               <Text style={Typography.headerText}>Scan Compost Receipt:</Text>
             </View>
 
-            <ActivityBanner 
-              title="Click here to scan your receipt"
-              square={<Entypo name="camera" style={Typography.roundButtonEntypo}/>}    
+            <ScanBanner 
+              square={<Entypo name="camera" style={Typography.cameraEntypo}/>}    
               navigate={this.photo}
             />
           </View> 
@@ -51,7 +51,7 @@ export default class CompostScreen extends React.Component {
 
           <View style={Spacing.sectionTwoScan}>
             <View style={{alignSelf: "flex-start"}}>
-              <Text style={Typography.headerText}>Scan Results:</Text>
+              <Text style={Typography.headerText}>Results of Scan:</Text>
             </View>
 
             <View style={Spacing.scanResults}>
@@ -86,7 +86,7 @@ export default class CompostScreen extends React.Component {
         </View>
         
         <View style={Spacing.bottomTextContainer}>
-          <Text>Learn more about Green Deeds </Text>
+          <Text style={Typography.footerText}>Learn more about Green Deeds </Text>
           <TouchableOpacity onPress={this.about}>
             <Text style={Typography.linkText}>here</Text>
           </TouchableOpacity>

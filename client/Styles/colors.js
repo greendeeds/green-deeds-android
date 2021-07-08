@@ -15,7 +15,8 @@ const Colors = {
     COMPLEMENTARY: "#FF530E", //"#D62214", (orange/red)
     WHITE: "#FFFFFF",
     BLACK: "#000000",  
-    
+    CELOYELLOW: "#fdc962",
+       
   }
   
   export default Colors

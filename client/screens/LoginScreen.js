@@ -111,13 +111,13 @@ const LoginScreen = ({ navigation }) => {
 
       <View style={Spacing.bottomNavContainer}>
         <View style={Spacing.bottomTextContainer}>
-          <Text style={Typography.defaultText}>Don't have an account? </Text>
+          <Text style={Typography.footerText}>Don't have an account? </Text>
           <TouchableOpacity onPress={register}>
             <Text style={Typography.linkText}>Register</Text>
           </TouchableOpacity>
         </View>
         <View style={Spacing.bottomTextContainer}>
-          <Text>What is Green Deeds? </Text>
+          <Text style={Typography.footerText}>What is Green Deeds? </Text>
           <TouchableOpacity onPress={about}>
             <Text style={Typography.linkText}>Learn more here</Text>
           </TouchableOpacity>

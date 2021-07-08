@@ -52,10 +52,15 @@ const Spacing = {
     width: 40,
   },
 
+  greenDeedLogo: {
+    height: 45,
+    width: 45,
+  },
+
+
 /////////////////////////
 // | RECYCLE | COMPOST //
 /////////////////////////
-
 //top of screen logo
   topLogo: {
     height: "25%",
@@ -65,14 +70,11 @@ const Spacing = {
     alignItems: "center",
   },
 
-
-
 //top of screen click to scan receipt
   sectionOneScan: {
     height: "20%",
     width: "100%",
     backgroundColor: Colors.WHITE,
-    
   },
 
 // header plus scan results
@@ -80,7 +82,6 @@ const Spacing = {
     height: "20%",
     width: "100%",
     backgroundColor: Colors.WHITE,
-    //justifyContent: "center",
   },
 
   scanResults: {
@@ -90,9 +91,7 @@ const Spacing = {
     justifyContent: "center",
     borderRadius: 2.5,
     marginVertical: 2,
-    backgroundColor: Colors.SECONDARYlite,
-    elevation: 4,
-    //margin: 5.6, 
+    backgroundColor: Colors.WHITE, 
   },
 
   sectionThreeScan: {
@@ -102,8 +101,6 @@ const Spacing = {
     justifyContent: "center",
     paddingBottom: "5%",
   },
-
-
 
 /////////////////////////
 // LOGIN SCREEN CONTAINERS
@@ -127,103 +124,36 @@ const Spacing = {
         paddingTop: "5%",
     },
 
+     // makes a pretty box to accept username/pw info
+     textInputContainer: {
+      width: 290,
+      height: 35,
+      backgroundColor: Colors.WHITE,
+      borderColor: Colors.TERTIARYdark,
+      borderBottomStartRadius: 2,
+      borderWidth: .75,
+      borderRadius: 3,
+      margin: 5,
+      paddingHorizontal: 7,
+      paddingTop: 2,
+      elevation: 2,
+  },
+
+/////////////////////////////////////////
+////// FOOTER //////////////////////////
+////////////////////////////////
     // parent for links at bottom of the screen
     bottomNavContainer: {
         height: "10%",
         width: "100%",
         backgroundColor: Colors.PRIMARY,
         justifyContent: "center",
-        
     },
 
-///////////////////////////
-// HOME SCREEN V1.0
-///////////////////////////
-    topContainer: {
-      height: "30%",
-      width: "100%",
-      backgroundColor: Colors.WHITE,
-      justifyContent: "space-evenly",
-      alignItems: "center",
-    },
-
-    childToptext: {
-        height: "20%",
-        backgroundColor: Colors.WHITE,
-        alignItems: "center", 
-        justifyContent: "center",
-        paddingBottom: "8%",  
-    },    
-
-    childTopbuttons: {
-        height: "15%",
-        backgroundColor: Colors.WHITE,
-        flexDirection: "row",
-        alignItems: "center", 
-        justifyContent: "center",
-      },
-
-      childCelo: {
-        height: "10%",
-        width: "100%",
-        backgroundColor: Colors.WHITE,
-        justifyContent: "center",
-      },
-    
-      childCeloButton: {
-        height: "15%",
-        width: "100%",
-        backgroundColor: Colors.WHITE,
-        flexDirection: "row",
-        alignItems: "center", 
-        justifyContent: "center",
-      },
-    
-      childDifference: {
-        height: "10%",
-        width: "100%",
-        backgroundColor: Colors.WHITE,
-        justifyContent: "center",
-        alignItems: "center", 
-      }, 
-    
-      childDifferenceButton: {
-        height: "15%",
-        width: "100%",
-        backgroundColor: Colors.WHITE,
-        flexDirection: "row",
-        alignItems: "center", 
-        justifyContent: "center",
-      },
-    
-      childLogout: {
-        height: "10%",
-        width: "100%",
-        backgroundColor: Colors.WHITE,
-        alignItems: "center", 
-        justifyContent: "flex-end",
-        //paddingBottom: "5%",
-      },
-    
-// THE LESSER CHILDREN
     // lines up text and clickables in bottomNavContainer
     bottomTextContainer: {
         flexDirection: "row",
         justifyContent: "center",
-    },
-
-    // makes a pretty box to accept username/pw info
-    textInputContainer: {
-        width: 290,
-        height: 35,
-        backgroundColor: Colors.WHITE,
-        borderColor: Colors.TERTIARYdark,
-        borderBottomStartRadius: 2,
-        borderWidth: .75,
-        borderRadius: 3,
-        margin: 5,
-        paddingHorizontal: 7,
-        paddingTop: 2,
     },
 
 ///////////////////////////////
@@ -234,6 +164,8 @@ const Spacing = {
     height: "30%",
     width: "100%",
     backgroundColor: Colors.WHITE, 
+    justifyContent: "center",
+    alignItems: "center",
   },
 
     // holds logo
@@ -248,7 +180,6 @@ const Spacing = {
 //////////////////////////////
 // REGISTER SCREEN
 //////////////////////////////
-    
   regLogoContainer: {
     height: "35%",
     width: "100%",
@@ -272,6 +203,59 @@ const Spacing = {
     justifyContent: "flex-start",
     alignItems: "center",
     paddingTop: "2%",
+  },
+
+///////////////////////////////////////
+// CELO GREEN (DEEDS) SCREEN ///////////
+///////////////////////////////////////
+  container: {
+    height: "90%",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: Colors.WHITE,
+  },
+
+  celoLogoContainer: {
+    height: "30%",
+    width: "100%",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    backgroundColor: Colors.WHITE,
+    paddingBottom: "5%",
+  },
+
+  celoLogoFull: {
+    height: 100,
+    width: 310,
+  },
+
+  attentionContainer: {
+    height: "12%",
+    width: "90%",
+    backgroundColor: Colors.WHITE,
+    borderColor: "red",
+    borderWidth: 2,
+    justifyContent: "center",
+    paddingLeft: 15,
+    marginTop: "4%",
+  },
+  
+  celoLoginContainer: {
+    height: "20%",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "5%",
+   
+  },
+
+  downloadContainer: {
+    height: "20%",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: "8%",
   },
 
 
