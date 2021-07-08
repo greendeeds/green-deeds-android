@@ -7,7 +7,7 @@ import AccountReducer from "./reducers/AccountReducer";
 
 //Navigation
 import { createStackNavigator } from "@react-navigation/stack";
-import AboutScreen from "./screens/AboutScreen";
+// import AboutScreen from "./screens/AboutScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import HomeScreen from "./screens/HomeScreen";
@@ -36,24 +36,31 @@ const Navigator = () => {
             <Stack.Screen
               options={{
                 animationTypeForReplace: "push",
-                headerStyle: { backgroundColor: Colors.PRIMARY }
+                headerStyle: { backgroundColor: Colors.PRIMARY },
               }}
               name="Home"
               component={HomeScreen}
+              options={{ exchanged: false }}
             />
             <Stack.Screen name="Camera" component={CameraScreen} />
 
-            <Stack.Screen name="Celo" component={CeloScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
-              />
+            <Stack.Screen
+              name="Celo"
+              component={CeloScreen}
+              options={{ headerStyle: { backgroundColor: Colors.PRIMARY } }}
+            />
 
-            <Stack.Screen name="Compost" component={CompostScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
-              />
+            <Stack.Screen
+              name="Compost"
+              component={CompostScreen}
+              options={{ headerStyle: { backgroundColor: Colors.PRIMARY } }}
+            />
 
-            <Stack.Screen name="Recycle" component={RecycleScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
-              />
+            <Stack.Screen
+              name="Recycle"
+              component={RecycleScreen}
+              options={{ headerStyle: { backgroundColor: Colors.PRIMARY } }}
+            />
           </>
         ) : (
           <>
@@ -66,13 +73,17 @@ const Navigator = () => {
                 headerStyle: { backgroundColor: Colors.PRIMARY }, //"#50ED0D" "#0FA429"
               }}
             />
-            <Stack.Screen name="Register" component={RegisterScreen}
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
-              />
+            <Stack.Screen
+              name="Register"
+              component={RegisterScreen}
+              options={{ headerStyle: { backgroundColor: Colors.PRIMARY } }}
+            />
 
-            <Stack.Screen name="About" component={AboutScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
-              />
+            {/* <Stack.Screen
+              name="About"
+              component={AboutScreen}
+              options={{ headerStyle: { backgroundColor: Colors.PRIMARY } }}
+            /> */}
           </>
         )}
       </Stack.Navigator>

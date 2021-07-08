@@ -1,39 +1,46 @@
-import React from "react";
-import { SafeAreaView, Button, Text, View } from "react-native"
+import React, { useState, useEffect, useRef } from "react";
+import { SafeAreaView, Button, Text, View, Alert } from "react-native";
 
-export default class CompostScreen extends React.Component {
-  state = {
-    composted: 0,
-    redeemableAmount: "0.00"  //route.params !== undefined ? route.params.redeemableAmount : "0.00"
-  }
+export default function CompostScreen({ navigation, route }) {
+  const [composted, setComposted] = useState(0);
+  const [redeemableAmount, setRedeemableAmount] = useState("0.00");
+  const [confirmed, setConfirmed] = useState(false);
 
-  photo = () => this.props.navigation.navigate("Camera")
-  celo = () => this.props.navigation.navigate("Celo", { redeemableAmount: this.state.redeemableAmount });
-  
+  const photo = () => navigation.navigate("Camera");
+  const celo = () =>
+    navigation.navigate("Celo", { redeemableAmount: redeemableAmount });
 
-  photoPressed = () => {
-    this.setState({
-      composted: 3,
-      redeemableAmount: "3.00"
-    })
+  //watch states for changes from camera screen
+  useEffect(() => {
+    console.log("useEffect ", route.params);
+    setComposted(route.params.composted);
+    setRedeemableAmount(route.params.redeemableAmount);
+    // setConfirmed(true);
+  }, [route.params]);
 
-  }
+  // useEffect(() => {
+  //   if (confirmed === true) {
+  //     Alert.alert(
+  //       "Confirmed!",
+  //       `Compost drop off confirmed!  Redeem ${redeemableAmount} for cUSD`,
+  //       [{ text: "Redeem", onPress: () => celo }]
+  //     );
+  //   }
+  // }, [confirmed]);
 
-  render() {
-    return (
-      <SafeAreaView>
-        <Button title="Scan Receipt" onPress={this.photoPressed} />
-  
-          <View>
-            <Text>Bags of compost: {this.state.composted}</Text>
+  const scanPressed = () => {
+    photo();
+  };
+  return (
+    <SafeAreaView>
+      <Button title="Scan Receipt" onPress={scanPressed} />
 
-            <Text>Redeemable Amount: ${this.state.redeemableAmount} </Text>
-            <Button title="Redeem for Celo Dollars" onPress={this.celo} />
-          </View>
+      <View>
+        <Text>Bags of compost: {composted}</Text>
 
-      </SafeAreaView>
-    );
-  }
-};
-
-
+        <Text>Redeemable Amount: ${redeemableAmount} </Text>
+        <Button title="Redeem for Celo Dollars" onPress={celo} />
+      </View>
+    </SafeAreaView>
+  );
+}
