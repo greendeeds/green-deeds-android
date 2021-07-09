@@ -1,8 +1,3 @@
-///////////////////////////////////////////////
-//////////////////////////////////////////
-// CHANGE 'login' back to 'onLoginPress' @ line 105-ish
-///////////////////////////////////////
-
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { loginAction } from "../actions/AccountActions";
