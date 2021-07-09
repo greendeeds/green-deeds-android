@@ -34,15 +34,15 @@ const Typography = {
     
   },
 
-  // home screen
+  // home | recycle | compost
   headerText: {
     color: Colors.BLACK,
-    fontSize: 36,
+    fontSize: 22,
     fontFamily: "sans-serif-medium", 
     textAlign: "center",
-    marginTop: "15%",
-    marginBottom: "10%",
+    marginLeft: "5%",
   },
+
 
   // underlines clickable text
   linkText: {
@@ -71,6 +71,14 @@ const Typography = {
     color: Colors.BLACK,
   },
 
+// Recycle & Compost Screens
+  quantityText: {
+    fontSize: 18,
+    fontFamily: 'sans-serif',
+    color: Colors.BLACK,
+    marginLeft: "5%",
+  },
+
 // VECTOR ICONS
   // styles the Entypo vector icons on the log in and out buttons
   logInOutEntypo: {
@@ -80,7 +88,7 @@ const Typography = {
 
   roundButtonEntypo: {
     fontSize: 24,
-    color: Colors.SECONDARY,
+    color: Colors.PRIMARY,
   },
 
 

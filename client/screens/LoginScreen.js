@@ -67,12 +67,10 @@ const LoginScreen = ({ navigation }) => {
         </View>
 
         <View style={{ paddingTop: "4%" }}>
-          <TouchableOpacity>
-            <Image
-              source={require("../assets/check-logo.png")}
-              style={styles.logo}
-            />
-          </TouchableOpacity>
+          <Image
+            source={require("../assets/check-logo.png")}
+            style={styles.logo}
+          />
         </View>
       </View>
 
@@ -100,7 +98,7 @@ const LoginScreen = ({ navigation }) => {
           />
         </View>
 
-        <TouchableOpacity style={Buttons.logInOutButton} onPress={onLoginPress}>
+        <TouchableOpacity style={Buttons.logInOutButton} onPress={login}>
           <Text style={Typography.logInOutButtonText}>Log In </Text>
           <Entypo name="login" style={Typography.logInOutEntypo} />
         </TouchableOpacity>

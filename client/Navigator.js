@@ -19,14 +19,16 @@ import CeloScreen from "./screens/CeloScreen";
 import { StackRouter } from "react-navigation";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { StyleSheet, Image, ColorPropType } from "react-native";
+import { StyleSheet, Image, ColorPropType, Button, Alert } from "react-native";
 
-import { Colors } from "./Styles/index";
+import { Buttons, Colors } from "./Styles/index";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Stack = createStackNavigator();
 
 const Navigator = () => {
   const loggedIn = useSelector((state) => state.AccountReducer.loggedIn);
+  const logout = () => dispatch(logoutAction());
 
   return (
     <NavigationContainer>
@@ -36,10 +38,12 @@ const Navigator = () => {
             <Stack.Screen
               options={{
                 animationTypeForReplace: "push",
-                headerStyle: { backgroundColor: Colors.PRIMARY }
+                headerStyle: { backgroundColor: Colors.PRIMARY },
+                
               }}
               name="Home"
               component={HomeScreen}
+             
             />
             <Stack.Screen name="Camera" component={CameraScreen} />
 
@@ -52,6 +56,10 @@ const Navigator = () => {
               />
 
             <Stack.Screen name="Recycle" component={RecycleScreen} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              />
+
+            <Stack.Screen name="About" component={AboutScreen} 
               options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
               />
           </>
