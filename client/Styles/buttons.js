@@ -13,22 +13,7 @@ const Buttons = {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    borderColor: Colors.TERTIARYdark,
-    borderBottomWidth: 2,
-    borderRightWidth: 2,
-  },
-
-  standardRoundButton: {
-    width: 100,
-    height: 100,
-    marginTop: 7,
-    margin: 20,  
-    backgroundColor: Colors.WHITE,
-    borderRadius: 50,
-    borderColor: Colors.PRIMARY,
-    borderWidth: 5,
-    justifyContent: "center",
-    alignItems: "center",
+    elevation: 4,
   },
 
   celoRingsLogo: {

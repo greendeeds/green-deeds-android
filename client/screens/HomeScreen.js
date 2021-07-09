@@ -20,7 +20,7 @@ const HomeScreen = ({ navigation }) => {
   const compost = () => navigation.navigate("Compost");
   const recycle = () => navigation.navigate("Recycle");
   const celo = () => navigation.navigate("Celo");
-  const about = () => navigation.navigate("About")
+  const about = () => navigation.navigate("About");
 
   const onLogoutPress = () => {
     firebase.auth().signOut().then(logout);
@@ -49,7 +49,11 @@ const HomeScreen = ({ navigation }) => {
 
           <ActivityBanner
             title="More Green Deeds coming soon!"
-            square={<Entypo name="tree" style={Typography.roundButtonEntypo}/>}
+            square={<Image
+              style={Spacing.greenDeedLogo}
+              source={require("../assets/check-logo-clrBKRD.png")} 
+              />}
+            navigate={about}
           />
 
         </View>
@@ -61,23 +65,18 @@ const HomeScreen = ({ navigation }) => {
             <Text style={Typography.headerText}>Learn the Facts; 
             Make a Difference:</Text>
           </View>
+
           <ScrollView horizontal={true}>
             <InfoBanner
-              title="In the US, 21.5 Million tons of food is wasted each and every year."  
+              title="In the US, 21.5 Million tons of food is wasted each and every year. Compost with Green Deeds and turn your trash into gold!"  
             />
-
             <InfoBanner 
               title="Even though it does not have the largest population, the US produces the most municipal solid waste (aka garbage) in the world: 258 Million Tons." 
             />
-
             <InfoBanner
-              title="The EPA estimates that 75% of the American waste stream is recyclable, but we only recycle about 30% of it."
-                
+              title="The EPA estimates that 75% of the US waste stream is recyclable, but only 30% of that is recycled. Recycle with Green Deeds and turn your trash into gold!"
             />
-
-      
           </ScrollView>
-         
         </View>
 
 
@@ -105,7 +104,7 @@ const HomeScreen = ({ navigation }) => {
         </View>
         
         <View style={Spacing.bottomTextContainer}>
-          <Text>Learn more about Green Deeds </Text>
+          <Text style={Typography.footerText}>Learn more about Green Deeds </Text>
           <TouchableOpacity onPress={about}>
             <Text style={Typography.linkText}>here</Text>
           </TouchableOpacity>

@@ -16,8 +16,12 @@ import FaucetContract from '../contracts/Faucet.json'
 import OpenURLButton from '../components/OpenURLButton'
 import BigNumber from 'bignumber.js'
 
-import whiteWalletRings from '../assets/white-wallet-rings.png'
 import { useDispatch } from 'react-redux'
+import { Spacing, Typography, Colors, Buttons } from "../Styles";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { Entypo } from "@expo/vector-icons";
+
+
 
 YellowBox.ignoreWarnings(['Warning: The provided value \'moz', 'Warning: The provided value \'ms-stream'])
 
@@ -326,22 +330,57 @@ export default class CeloScreen extends React.Component {
 
     return (
       
-      <View style={styles.container}>
-        <Image resizeMode='contain' source={whiteWalletRings}></Image>
-        
+      <View>
+ 
         {
           this.state.loggedIn === false ? (
             <>
-            <Text>You must have Celo Wallet (alfajores network) installed!</Text>
-              <Text style={styles.title}>Login to Celo!!</Text>
-              <Button title="Login" 
-                onPress={()=> this.login()} />
-              <Text></Text>
-              <Text>Please download the Celo Wallet to continue.</Text>
-              <OpenURLButton url="https://celo.org/developers/wallet">
-                Download Wallet
-              </OpenURLButton>
-            </>
+                <View style={Spacing.container}>
+                  <View style={Spacing.attentionContainer}>
+                    <Text style={Typography.attention}>Attention:</Text>
+                    <Text style={Typography.defaultText}>You must have the Celo Wallet (alfajores network) installed before attempting to Log In!</Text>
+                  </View>
+                  
+                  <View style={Spacing.celoLogoContainer}>
+                    <Image source={require("../assets/celo-logo.png")}
+                      style={Spacing.celoLogoFull} />
+                  </View>
+               
+                  <View style={Spacing.celoLoginContainer}>
+                    <Text style={Typography.headlineText}>Already have a Celo Wallet?</Text>
+                    <TouchableOpacity style={Buttons.logInOutButton} 
+                      onPress={() => {this.login}}
+                      >
+                      <Text style={Typography.logInOutButtonText}>Log In </Text>
+                      <Entypo name="login" style={Typography.logInOutEntypo} />
+                    </TouchableOpacity>
+                  </View>
+
+                    <View style={Spacing.downloadContainer}>
+                      <Text style={Typography.headlineText}>Need a Celo Wallet?</Text>
+                      <TouchableOpacity>
+                        <OpenURLButton url="https://celo.org/developers/wallet" />
+                      </TouchableOpacity>
+                      
+                    </View> 
+                 
+                </View>
+                <View style={Spacing.bottomNavContainer}>
+                  <View style={Spacing.bottomTextContainer}>
+                    <TouchableOpacity>
+                      <Text style={Typography.linkText}>Click here to Log Out</Text>
+                    </TouchableOpacity>
+                  </View>
+            
+                  <View style={Spacing.bottomTextContainer}>
+                    <Text style={Typography.footerText}>Learn more about Green Deeds </Text>
+                    <TouchableOpacity>
+                      <Text style={Typography.linkText}>here</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+
+            </> 
           ) : (
             <ScrollView>
               <Text style={styles.title}>Account Info:</Text>
@@ -398,20 +437,16 @@ export default class CeloScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#35d07f',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
   title: {
     marginVertical: 8, 
     fontSize: 20, 
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
-  }
+  },
+
 });

@@ -39,28 +39,41 @@ const Navigator = () => {
               options={{
                 animationTypeForReplace: "push",
                 headerStyle: { backgroundColor: Colors.PRIMARY },
-                
+                headerTintColor: Colors.WHITE,                
               }}
               name="Home"
               component={HomeScreen}
              
             />
-            <Stack.Screen name="Camera" component={CameraScreen} />
+            <Stack.Screen name="Camera" component={CameraScreen}
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY}, 
+                headerTintColor: Colors.WHITE,
+              }}
+              />
 
             <Stack.Screen name="Celo" component={CeloScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY}, 
+                headerTintColor: Colors.WHITE,
+                title: "Celo Log In",
+              }} 
               />
 
             <Stack.Screen name="Compost" component={CompostScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY},
+                headerTintColor: Colors.WHITE,
+               }} 
               />
 
             <Stack.Screen name="Recycle" component={RecycleScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY},
+              headerTintColor: Colors.WHITE,
+              }} 
               />
 
             <Stack.Screen name="About" component={AboutScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY}, 
+              headerTintColor: Colors.WHITE,
+              }} 
               />
           </>
         ) : (
@@ -71,15 +84,20 @@ const Navigator = () => {
               options={{
                 title: "Log In",
                 animationTypeForReplace: "pop",
-                headerStyle: { backgroundColor: Colors.PRIMARY }, //"#50ED0D" "#0FA429"
+                headerStyle: { backgroundColor: Colors.PRIMARY },
+                headerTintColor: Colors.WHITE,
               }}
             />
             <Stack.Screen name="Register" component={RegisterScreen}
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY},
+                headerTintColor: Colors.WHITE,
+               }} 
               />
 
             <Stack.Screen name="About" component={AboutScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY} }} 
+              options={{ headerStyle: {backgroundColor: Colors.PRIMARY},
+                headerTintColor: Colors.WHITE,
+              }} 
               />
           </>
         )}
