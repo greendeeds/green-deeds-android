@@ -27,8 +27,10 @@ import FaucetContract from "../contracts/Faucet.json";
 import OpenURLButton from "../components/OpenURLButton";
 import BigNumber from "bignumber.js";
 
-import whiteWalletRings from "../assets/white-wallet-rings.png";
 import { useDispatch } from "react-redux";
+import { Spacing, Typography, Colors, Buttons } from "../Styles";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { Entypo } from "@expo/vector-icons";
 
 LogBox.ignoreAllLogs();
 
@@ -467,12 +469,6 @@ export default class CeloScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#35d07f",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   title: {
     marginVertical: 8,
     fontSize: 20,

@@ -31,25 +31,29 @@ const Typography = {
     textAlign: "center",
     marginHorizontal: "4%",
     marginBottom: "2%",
-    
   },
 
-  // home screen
+  // home | recycle | compost
   headerText: {
     color: Colors.BLACK,
-    fontSize: 36,
+    fontSize: 22,
     fontFamily: "sans-serif-medium", 
     textAlign: "center",
-    marginTop: "15%",
-    marginBottom: "10%",
+    marginLeft: "5%",
   },
 
-  // underlines clickable text
+  // adds underlines to clickables in footer
   linkText: {
     fontSize: 14,
     fontFamily: 'sans-serif',
-    color: Colors.BLACK,
+    color: Colors.WHITE,
     textDecorationLine: 'underline',
+  },
+
+  footerText: {
+    fontSize: 14,
+    fontFamily: 'sans-serif',
+    color: Colors.WHITE,
   },
 
   logInOutButtonText: {
@@ -66,9 +70,31 @@ const Typography = {
 
 // About Screen
   generalText: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: 'sans-serif',
     color: Colors.BLACK,
+  },
+
+  topText: {
+    color: Colors.BLACK,
+    fontSize: 24,
+    fontFamily: "sans-serif", 
+    textAlign: "center",
+  },
+
+  blackLinkText: {
+    fontSize: 18,
+    fontFamily: 'sans-serif',
+    color: Colors.BLACK,
+    textDecorationLine: 'underline',
+  },
+
+// Recycle & Compost Screens
+  quantityText: {
+    fontSize: 18,
+    fontFamily: 'sans-serif',
+    color: Colors.BLACK,
+    marginLeft: "5%",
   },
 
 // VECTOR ICONS
@@ -79,9 +105,32 @@ const Typography = {
   },
 
   roundButtonEntypo: {
-    fontSize: 24,
-    color: Colors.SECONDARY,
+    fontSize: 25,
+    color: Colors.PRIMARY,
   },
+
+  //{<Entypo name="tree" style={Typography.roundButtonEntypo}
+  cameraEntypo: {
+    fontSize: 45,
+    color: Colors.PRIMARY,
+  },
+
+// CELO SCREEN
+  attention: {
+    fontSize: 16,
+    fontFamily: 'sans-serif-medium',
+    color: "red",
+    textAlign: "left",
+   },
+
+   headlineText: {
+    color: Colors.BLACK,
+    fontSize: 22,
+    fontFamily: "sans-serif-medium", 
+    textAlign: "center",
+    padding: 4,
+  },
+
 
 
 };

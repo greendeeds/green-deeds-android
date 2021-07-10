@@ -120,7 +120,7 @@ const RegisterScreen = ({ navigation }) => {
 
       <View style={Spacing.bottomNavContainer}>
         <View style={Spacing.bottomTextContainer}>
-          <Text style={Typography.defaultText}>
+          <Text style={Typography.footerText}>
             Already have an account?{" "}
             <Text onPress={onFooterLinkPress} style={Typography.linkText}>
               Log in
