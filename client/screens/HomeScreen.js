@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutAction } from "../actions/AccountActions";
-import { SafeAreaView, Text, View, Button, Alert, Image } from "react-native";
+import {
+  SafeAreaView,
+  Text,
+  View,
+  Button,
+  Alert,
+  Image,
+  ScrollView,
+} from "react-native";
 
 import { withNavigation } from "@react-navigation/native";
 import firebase from "firebase";
@@ -35,7 +43,11 @@ const HomeScreen = ({ navigation, route }) => {
       redeemableAmount: "0.00",
       composted: 0,
     });
-  const recycle = () => navigation.navigate("Recycle");
+  const recycle = () =>
+    navigation.navigate("Recycle", {
+      redeemableAmount: "0.00",
+      recycled: 0,
+    });
   const celo = () => navigation.navigate("Celo");
   const about = () => navigation.navigate("About");
 
@@ -70,7 +82,7 @@ const HomeScreen = ({ navigation, route }) => {
             square={
               <Image
                 style={Spacing.greenDeedLogo}
-                source={require("../assets/check-logo-clrBKRD.png")}
+                source={require("../assets/check-logo.png")}
               />
             }
             navigate={about}

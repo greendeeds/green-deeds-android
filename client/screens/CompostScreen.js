@@ -1,35 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
+import { useDispatch } from "react-redux";
 import ActivityBanner from "../components/ActivityBanner";
 import ScanBanner from "../components/ScanBanner";
 import { Entypo } from "@expo/vector-icons";
 import { Spacing, Typography } from "../Styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { logoutAction } from "../actions/AccountActions";
 
 export default function CompostScreen({ navigation, route }) {
+  const dispatch = useDispatch();
   const [composted, setComposted] = useState(0);
   const [redeemableAmount, setRedeemableAmount] = useState("0.00");
   const [confirmed, setConfirmed] = useState(false);
 
-  photo = () => this.props.navigation.navigate("Camera");
-  celo = () =>
-    this.props.navigation.navigate("Celo", {
-      redeemableAmount: this.state.redeemableAmount,
+  const photo = () => navigation.navigate("Camera");
+  const celo = () =>
+    navigation.navigate("Celo", {
+      redeemableAmount: redeemableAmount,
     });
-  about = () => this.props.navigation.navigate("About");
+  const about = () => navigation.navigate("About");
+  const logout = () => dispatch(logoutAction());
 
   useEffect(() => {
     console.log("useEffect ", route.params);
     setComposted(route.params.composted);
     setRedeemableAmount(route.params.redeemableAmount);
   }, [route.params]);
-
-  photoPressed = () => {
-    this.setState({
-      composted: 3,
-      redeemableAmount: "3.00",
-    });
-  };
 
   return (
     <SafeAreaView>
@@ -48,7 +45,7 @@ export default function CompostScreen({ navigation, route }) {
 
           <ScanBanner
             square={<Entypo name="camera" style={Typography.cameraEntypo} />}
-            navigate={this.photo}
+            navigate={photo}
           />
         </View>
 
@@ -59,10 +56,10 @@ export default function CompostScreen({ navigation, route }) {
 
           <View style={Spacing.scanResults}>
             <Text style={Typography.quantityText}>
-              Amount Composted: {this.state.composted}
+              Amount Composted: {composted}
             </Text>
             <Text style={Typography.quantityText}>
-              Redeemable Amount: ${this.state.redeemableAmount}{" "}
+              Redeemable Amount: ${redeemableAmount}{" "}
             </Text>
           </View>
         </View>
@@ -80,7 +77,7 @@ export default function CompostScreen({ navigation, route }) {
                 source={require("../assets/celo-logo-colored-rings.png")}
               />
             }
-            navigate={this.celo}
+            navigate={celo}
           />
         </View>
 
@@ -89,7 +86,7 @@ export default function CompostScreen({ navigation, route }) {
 
       <View style={Spacing.bottomNavContainer}>
         <View style={Spacing.bottomTextContainer}>
-          <TouchableOpacity onPress={this.logout}>
+          <TouchableOpacity onPress={logout}>
             <Text style={Typography.linkText}>Click here to Log Out</Text>
           </TouchableOpacity>
         </View>
@@ -98,7 +95,7 @@ export default function CompostScreen({ navigation, route }) {
           <Text style={Typography.footerText}>
             Learn more about Green Deeds{" "}
           </Text>
-          <TouchableOpacity onPress={this.about}>
+          <TouchableOpacity onPress={about}>
             <Text style={Typography.linkText}>here</Text>
           </TouchableOpacity>
         </View>

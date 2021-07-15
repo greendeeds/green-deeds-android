@@ -7,7 +7,7 @@ import AccountReducer from "./reducers/AccountReducer";
 
 //Navigation
 import { createStackNavigator } from "@react-navigation/stack";
-// import AboutScreen from "./screens/AboutScreen";
+import AboutScreen from "./screens/AboutScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import HomeScreen from "./screens/HomeScreen";

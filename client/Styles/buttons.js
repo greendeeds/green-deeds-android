@@ -1,7 +1,6 @@
-
 // BUTTONS
 
-import Colors from './colors';
+import Colors from "./colors";
 
 const Buttons = {
   logInOutButton: {
@@ -20,9 +19,6 @@ const Buttons = {
     height: 100,
     width: 100,
   },
-
 };
 
-export default Buttons
-
-
+export default Buttons;

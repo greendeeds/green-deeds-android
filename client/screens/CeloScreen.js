@@ -26,6 +26,7 @@ import FaucetContract from "../contracts/Faucet.json";
 
 import OpenURLButton from "../components/OpenURLButton";
 import BigNumber from "bignumber.js";
+import whiteWalletRings from "../assets/white-wallet-rings.png";
 
 import { useDispatch } from "react-redux";
 import { Spacing, Typography, Colors, Buttons } from "../Styles";
