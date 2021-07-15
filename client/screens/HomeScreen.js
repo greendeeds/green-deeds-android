@@ -1,23 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutAction } from "../actions/AccountActions";
-import { SafeAreaView, Text, View, Image, ScrollView } from "react-native";
+import {
+  SafeAreaView,
+  Text,
+  View,
+  Button,
+  Alert,
+  Image,
+  ScrollView,
+} from "react-native";
 
 import { withNavigation } from "@react-navigation/native";
 import firebase from "firebase";
-import { Spacing, Typography } from "../Styles";
+import { Buttons, Spacing, Typography } from "../Styles";
 import { Entypo } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ActivityBanner from "../components/ActivityBanner";
 import InfoBanner from "../components/InfoBanner";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation, route }) => {
   const loggedIn = useSelector((state) => state.AccountReducer.loggedIn);
   const dispatch = useDispatch();
+  const [exchanged, setExchanged] = useState(false);
+
+  useEffect(() => {
+    if (route && route.params && route.params.exchanged)
+      setExchanged(route.params.exchanged);
+
+    if (exchanged === true) {
+      Alert.alert(
+        "Congratulations!",
+        "You just earned carbon credits for your business and helped Green Deeds in the process!  Good job, Deeder!"
+      );
+      // setExchanged(false);
+    }
+  }, [route]);
 
   const logout = () => dispatch(logoutAction());
-  const compost = () => navigation.navigate("Compost");
-  const recycle = () => navigation.navigate("Recycle");
+  const compost = () =>
+    navigation.navigate("Compost", {
+      redeemableAmount: "0.00",
+      composted: 0,
+    });
+  const recycle = () =>
+    navigation.navigate("Recycle", {
+      redeemableAmount: "0.00",
+      recycled: 0,
+    });
   const celo = () => navigation.navigate("Celo");
   const about = () => navigation.navigate("About");
 

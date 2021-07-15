@@ -39,42 +39,57 @@ const Navigator = () => {
               options={{
                 animationTypeForReplace: "push",
                 headerStyle: { backgroundColor: Colors.PRIMARY },
-                headerTintColor: Colors.WHITE,                
+                headerTintColor: Colors.WHITE,
               }}
               name="Home"
               component={HomeScreen}
-             
+              options={{ exchanged: false }}
             />
-            <Stack.Screen name="Camera" component={CameraScreen}
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY}, 
+            <Stack.Screen
+              name="Camera"
+              component={CameraScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
               }}
-              />
+            />
 
-            <Stack.Screen name="Celo" component={CeloScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY}, 
+            <Stack.Screen
+              name="Celo"
+              component={CeloScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
                 title: "Celo Log In",
-              }} 
-              />
+              }}
+            />
 
-            <Stack.Screen name="Compost" component={CompostScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY},
+            <Stack.Screen
+              name="Compost"
+              component={CompostScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
-               }} 
-              />
+              }}
+            />
 
-            <Stack.Screen name="Recycle" component={RecycleScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY},
-              headerTintColor: Colors.WHITE,
-              }} 
-              />
+            <Stack.Screen
+              name="Recycle"
+              component={RecycleScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
+                headerTintColor: Colors.WHITE,
+              }}
+            />
 
-            <Stack.Screen name="About" component={AboutScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY}, 
-              headerTintColor: Colors.WHITE,
-              }} 
-              />
+            <Stack.Screen
+              name="About"
+              component={AboutScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
+                headerTintColor: Colors.WHITE,
+              }}
+            />
           </>
         ) : (
           <>
@@ -88,17 +103,23 @@ const Navigator = () => {
                 headerTintColor: Colors.WHITE,
               }}
             />
-            <Stack.Screen name="Register" component={RegisterScreen}
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY},
+            <Stack.Screen
+              name="Register"
+              component={RegisterScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
-               }} 
-              />
+              }}
+            />
 
-            <Stack.Screen name="About" component={AboutScreen} 
-              options={{ headerStyle: {backgroundColor: Colors.PRIMARY},
+            <Stack.Screen
+              name="About"
+              component={AboutScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
-              }} 
-              />
+              }}
+            />
           </>
         )}
       </Stack.Navigator>

@@ -18,6 +18,9 @@ import {
 } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 
+import logo from "../assets/check-logo.png";
+const logoUri = Image.resolveAssetSource(logo).uri;
+
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,6 +36,7 @@ const LoginScreen = ({ navigation }) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
+        console.log(response);
         const uid = response.user.uid;
         const usersRef = firebase.firestore().collection("users");
         usersRef
@@ -47,10 +51,12 @@ const LoginScreen = ({ navigation }) => {
             login();
           })
           .catch((error) => {
+            console.log("err: ", error);
             alert(error);
           });
       })
       .catch((error) => {
+        console.log("ERROR:: ", email, password, err);
         alert(error);
       });
   };
@@ -67,10 +73,9 @@ const LoginScreen = ({ navigation }) => {
         </View>
 
         <View style={{ paddingTop: "4%" }}>
-          <Image
-            source={require("../assets/check-logo.png")}
-            style={styles.logo}
-          />
+          <TouchableOpacity>
+            <Image source={{ uri: logoUri }} style={styles.logo} />
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -98,7 +103,7 @@ const LoginScreen = ({ navigation }) => {
           />
         </View>
 
-        <TouchableOpacity style={Buttons.logInOutButton} onPress={onLoginPress}>
+        <TouchableOpacity style={Buttons.logInOutButton} onPress={login}>
           <Text style={Typography.logInOutButtonText}>Log In </Text>
           <Entypo name="login" style={Typography.logInOutEntypo} />
         </TouchableOpacity>
@@ -124,7 +129,7 @@ const LoginScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   logo: {
-    width:250,
+    width: 250,
     height: 250,
   },
 });
