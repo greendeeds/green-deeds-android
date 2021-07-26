@@ -9,11 +9,10 @@ import {
   StyleSheet,
 } from "react-native";
 import { withNavigation } from "@react-navigation/native";
-import { Buttons, Spacing, Typography } from "../Styles";
+import { Buttons, Spacing, Typography, Colors } from "../styles";
 import { Entypo } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { LinearGradient } from "expo-linear-gradient";
-import { Colors } from "../Styles";
 import { NavigationEvents } from "react-navigation";
 
 const ActivityBanner = (props) => {

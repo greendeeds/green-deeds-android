@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-import { Buttons, Spacing, Typography } from "../Styles";
+import { Buttons, Spacing, Typography } from "../styles";
 import { Entypo } from "@expo/vector-icons";
 
 const AboutScreen = ({ navigation }) => {

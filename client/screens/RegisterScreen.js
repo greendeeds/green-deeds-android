@@ -3,8 +3,16 @@ import React, { useState } from "react";
 import { loginAction } from "../actions/AccountActions";
 import { firebase } from "../firebase/config";
 
-import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from "react-native";
-import { Buttons, Spacing, Typography } from "../Styles";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
+import { Buttons, Spacing, Typography } from "../styles";
 
 // import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 
@@ -62,13 +70,16 @@ const RegisterScreen = ({ navigation }) => {
 
       <View style={Spacing.regLogoContainer}>
         <Image
-            source={require("../assets/check-logo.png")}
-            style={styles.logo}
-          />
+          source={require("../assets/check-logo.png")}
+          style={styles.logo}
+        />
       </View>
-      
+
       <View style={Spacing.registerContainer}>
-        <Text style={Typography.registerHeaderText}>Enter your information, below, then click "Create Account" to complete registration!</Text>
+        <Text style={Typography.registerHeaderText}>
+          Enter your information, below, then click "Create Account" to complete
+          registration!
+        </Text>
         <TextInput
           style={Spacing.textInputContainer}
           placeholder="Full Name"
@@ -117,7 +128,6 @@ const RegisterScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-
       <View style={Spacing.bottomNavContainer}>
         <View style={Spacing.bottomTextContainer}>
           <Text style={Typography.footerText}>
@@ -128,17 +138,15 @@ const RegisterScreen = ({ navigation }) => {
           </Text>
         </View>
       </View>
-      
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   logo: {
-    width:200,
+    width: 200,
     height: 200,
   },
- 
 });
 
 export default RegisterScreen;

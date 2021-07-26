@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import ActivityBanner from "../components/ActivityBanner";
 import ScanBanner from "../components/ScanBanner";
 import { Entypo } from "@expo/vector-icons";
-import { Spacing, Typography } from "../Styles";
+import { Spacing, Typography } from "../styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { logoutAction } from "../actions/AccountActions";
 

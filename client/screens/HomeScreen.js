@@ -13,7 +13,7 @@ import {
 
 import { withNavigation } from "@react-navigation/native";
 import firebase from "firebase";
-import { Buttons, Spacing, Typography } from "../Styles";
+import { Buttons, Spacing, Typography } from "../styles";
 import { Entypo } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ActivityBanner from "../components/ActivityBanner";

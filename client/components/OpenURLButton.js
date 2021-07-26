@@ -2,8 +2,8 @@ import { ProposalStage } from "@celo/contractkit/lib/wrappers/Governance";
 import React, { useCallback } from "react";
 import { Alert, Text, Button, Linking, StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Buttons, Typography } from "../Styles";
-import { Entypo } from '@expo/vector-icons';
+import { Buttons, Typography } from "../styles";
+import { Entypo } from "@expo/vector-icons";
 
 const OpenURLButton = ({ url, children }) => {
   const handlePress = useCallback(async () => {
@@ -19,15 +19,17 @@ const OpenURLButton = ({ url, children }) => {
     }
   }, [url]);
 
-  return <TouchableOpacity 
-    style={Buttons.logInOutButton}
-    title={children} 
-    onPress={handlePress}>
+  return (
+    <TouchableOpacity
+      style={Buttons.logInOutButton}
+      title={children}
+      onPress={handlePress}
+    >
       <Text style={Typography.logInOutButtonText}>Get one here! </Text>
-      <Entypo name="wallet" style={Typography.logInOutEntypo}/>
+      <Entypo name="wallet" style={Typography.logInOutEntypo} />
     </TouchableOpacity>
- 
-}
+  );
+};
 
 export default OpenURLButton;
 
