@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { loginAction } from "../actions/AccountActions";
 import { firebase } from "../firebase/config";
-import { Buttons, Spacing, Typography } from "../Styles/index";
+import { Buttons, Spacing, Typography } from "../styles";
 import { Entypo } from "@expo/vector-icons";
 
 import {

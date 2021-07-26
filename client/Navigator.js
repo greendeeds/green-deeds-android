@@ -21,7 +21,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { StyleSheet, Image, ColorPropType, Button, Alert } from "react-native";
 
-import { Buttons, Colors } from "./Styles/index";
+import { Buttons, Colors } from "./styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Stack = createStackNavigator();
