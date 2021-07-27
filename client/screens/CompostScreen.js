@@ -14,7 +14,10 @@ export default function CompostScreen({ navigation, route }) {
   const [redeemableAmount, setRedeemableAmount] = useState("0.00");
   const [confirmed, setConfirmed] = useState(false);
 
-  const photo = () => navigation.navigate("Camera");
+  const photo = () =>
+    navigation.navigate("Camera", {
+      parentComponent: "CompostScreen",
+    });
   const celo = () =>
     navigation.navigate("Celo", {
       redeemableAmount: redeemableAmount,
@@ -23,7 +26,6 @@ export default function CompostScreen({ navigation, route }) {
   const logout = () => dispatch(logoutAction());
 
   useEffect(() => {
-    console.log("useEffect ", route.params);
     setComposted(route.params.composted);
     setRedeemableAmount(route.params.redeemableAmount);
   }, [route.params]);

@@ -14,12 +14,15 @@ import { Camera } from "expo-camera";
 import { NavigationContainer } from "@react-navigation/native";
 
 import exampleCompostImage from "../assets/foodwaste.jpg";
+import exampleRecycleImage from "../assets/bottle-receipt.jpg";
 const exampleCompostImageUri =
   Image.resolveAssetSource(exampleCompostImage).uri;
+const exampleRecycleImageUri =
+  Image.resolveAssetSource(exampleRecycleImage).uri;
 
 // import * as ImagePicker from "expo-image-picker";
 
-export default function CameraScreen({ navigation }) {
+export default function CameraScreen({ route, navigation }) {
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraRef, setCameraRef] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
@@ -30,6 +33,7 @@ export default function CameraScreen({ navigation }) {
   const [photoPath, setPhotoPath] = useState(null);
   const [image, setImage] = useState(null);
 
+  const [recycled, setRecycled] = useState(0);
   const [composted, setComposted] = useState(0);
   const [redeemableAmount, setRedeemableAmount] = useState("0.00");
 
@@ -42,53 +46,38 @@ export default function CameraScreen({ navigation }) {
     })();
   }, []);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     if (Platform.OS !== "web") {
-  //       const { status } =
-  //         await ImagePicker.requestMediaLibraryPermissionsAsync();
-  //       if (status !== "granted") {
-  //         alert("Sorry, we need camera roll permissions to make this work!");
-  //       }
-  //     }
-  //   })();
-  // }, []);
-
   const takePicture = async () => {
     if (cameraRef) {
       // let photo = await cameraRef.takePictureAsync();
       setShowCamera(false);
       setShowConfirmPhoto(true);
-      // setPhotoPath(photo.uri);
-      setPhotoPath(exampleCompostImageUri);
       setImage(true);
-      setComposted(3);
-      setRedeemableAmount("0.35");
+      // setPhotoPath(photo.uri);
+
+      if (route.params.parentComponent === "CompostScreen") {
+        setComposted(1);
+        setPhotoPath(exampleCompostImageUri);
+        setRedeemableAmount("0.35");
+      } else {
+        setRecycled(11);
+        setPhotoPath(exampleRecycleImageUri);
+        setRedeemableAmount("0.55");
+      }
     }
   };
 
-  // const pickImage = async () => {
-  //   let result = await ImagePicker.launchImageLibraryAsync({
-  //     mediaTypes: ImagePicker.MediaTypeOptions.All,
-  //     allowsEditing: true,
-  //     aspect: [4, 3],
-  //     quality: 1,
-  //   });
-
-  //   console.log(result);
-
-  //   if (!result.cancelled) {
-  //     setImage(result.uri);
-  //   } else {
-  //     console.log("cancelled: ", result.cancelled);
-  //   }
-  // };
-
   const confirmPhoto = () => {
-    navigation.navigate("Compost", {
-      redeemableAmount: redeemableAmount,
-      composted: composted,
-    });
+    if (route.params.parentComponent === "CompostScreen") {
+      navigation.navigate("Compost", {
+        redeemableAmount: redeemableAmount,
+        composted: composted,
+      });
+    } else {
+      navigation.navigate("Recycle", {
+        redeemableAmount: redeemableAmount,
+        recycled: recycled,
+      });
+    }
   };
 
   if (hasPermission === null) {
@@ -132,7 +121,7 @@ export default function CameraScreen({ navigation }) {
             >
               <View
                 style={{
-                  height: 50,
+                  height: 950,
                   width: 50,
                   display: "flex",
                   justifyContent: "center",
@@ -151,33 +140,68 @@ export default function CameraScreen({ navigation }) {
           </View>
         </Camera>
       )}
-      {showConfirmPhoto === true && (
-        <View
-          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        >
-          {image && (
-            <>
-              <Image
-                source={{ uri: photoPath }}
-                style={{ width: 300, height: 300 }}
-              />
-              <View>
-                <Text>Bags of compost: {composted}</Text>
+      {showConfirmPhoto === true &&
+        route.params.parentComponent === "CompostScreen" && (
+          <View
+            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+          >
+            {image && (
+              <>
+                <Image
+                  source={{ uri: photoPath }}
+                  style={{ width: 300, height: 300 }}
+                />
+                <View>
+                  <Text>Bags of compost: {composted}</Text>
 
-                <Text>Redeemable Amount: ${redeemableAmount} </Text>
-                <View style={Spacing.bottomTextContainer}>
-                  <TouchableOpacity
-                    style={Buttons.logInOutButton}
-                    onPress={confirmPhoto}
-                  >
-                    <Text style={Typography.logInOutButtonText}> Confirm </Text>
-                  </TouchableOpacity>
+                  <Text>Redeemable Amount: ${redeemableAmount} </Text>
+                  <View style={Spacing.bottomTextContainer}>
+                    <TouchableOpacity
+                      style={Buttons.logInOutButton}
+                      onPress={confirmPhoto}
+                    >
+                      <Text style={Typography.logInOutButtonText}>
+                        {" "}
+                        Confirm{" "}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
-              </View>
-            </>
-          )}
-        </View>
-      )}
+              </>
+            )}
+          </View>
+        )}
+      {showConfirmPhoto === true &&
+        route.params.parentComponent === "RecycleScreen" && (
+          <View
+            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+          >
+            {image && (
+              <>
+                <Image
+                  source={{ uri: photoPath }}
+                  style={{ width: 300, height: 300 }}
+                />
+                <View>
+                  <Text>Bottles Recycled: {recycled}</Text>
+
+                  <Text>Redeemable Amount: ${redeemableAmount} </Text>
+                  <View style={Spacing.bottomTextContainer}>
+                    <TouchableOpacity
+                      style={Buttons.logInOutButton}
+                      onPress={confirmPhoto}
+                    >
+                      <Text style={Typography.logInOutButtonText}>
+                        {" "}
+                        Confirm{" "}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </>
+            )}
+          </View>
+        )}
     </View>
   );
 }

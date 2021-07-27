@@ -14,7 +14,10 @@ export default function RecycleScreen({ navigation, route }) {
   const [redeemableAmount, setRedeemableAmount] = useState("0.00");
   const [confirmed, setConfirmed] = useState(false);
 
-  const photo = () => navigation.navigate("Camera");
+  const photo = () =>
+    navigation.navigate("Camera", {
+      parentComponent: "RecycleScreen",
+    });
   const celo = () =>
     navigation.navigate("Celo", {
       redeemableAmount: redeemableAmount,
@@ -23,7 +26,6 @@ export default function RecycleScreen({ navigation, route }) {
   const logout = () => dispatch(logoutAction());
 
   useEffect(() => {
-    console.log("useEffect ", route.params);
     setRecycled(route.params.recycled);
     setRedeemableAmount(route.params.redeemableAmount);
   }, [route.params]);
