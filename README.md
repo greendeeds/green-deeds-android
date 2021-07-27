@@ -2,14 +2,6 @@
 
 # Green Deeds
 
-## SNI Hackathon:
-
-Please see the [compost-user-flow](https://github.com/greendeeds/green-deeds-android/tree/compost-user-flow) branch for the SNI hack compost walkthrough.
-
-A detailed process of how we would turn food waste into compost and rewards please see our GreenNFT submission [here](https://github.com/bdev07/green-deeds-regen-iris-nft).
-
-[GNU License](https://github.com/greendeeds/green-deeds-android/blob/master/COPYING.txt)
-
 ## Green Deeds potential for impact:
 
 Green Deeds hopes to revolutionize how we think about food waste and plastics by creating an efficient decentralized recycling of resources.
@@ -33,6 +25,14 @@ Mobile first decentralized finance makes the blockchain more user friendly. This
 This question is also answered in our full presentation, found [here](https://www.youtube.com/watch?v=IKhEv0-V1wc).
 
 #
+
+## SNI Hackathon:
+
+Please see the [compost-user-flow](https://github.com/greendeeds/green-deeds-android/tree/compost-user-flow) branch for the SNI hack compost walkthrough.
+
+A detailed process of how we would turn food waste into compost and rewards please see our GreenNFT submission [here](https://github.com/bdev07/green-deeds-regen-iris-nft).
+
+[GNU License](https://github.com/greendeeds/green-deeds-android/blob/master/COPYING.txt)
 
 ## Server Requirements
 
