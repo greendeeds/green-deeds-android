@@ -25,7 +25,7 @@ const OpenURLButton = ({ url, children }) => {
       title={children}
       onPress={handlePress}
     >
-      <Text style={Typography.logInOutButtonText}>Get one here! </Text>
+      <Text style={Typography.logInOutButtonText}>{children}</Text>
       <Entypo name="wallet" style={Typography.logInOutEntypo} />
     </TouchableOpacity>
   );

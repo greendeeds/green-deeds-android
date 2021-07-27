@@ -410,7 +410,7 @@ export default class CeloScreen extends React.Component {
             <Text></Text>
             <Text>Please download the Celo Wallet to continue.</Text>
             <OpenURLButton url="https://celo.org/developers/wallet">
-              Download Wallet
+              Get one here!
             </OpenURLButton>
           </>
         ) : (
