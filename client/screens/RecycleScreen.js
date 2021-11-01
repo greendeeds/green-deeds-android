@@ -24,6 +24,7 @@ export default function RecycleScreen({ navigation, route }) {
     });
   const about = () => navigation.navigate("About");
   const logout = () => dispatch(logoutAction());
+  const kiva = () => navigation.navigate("Kiva");
 
   useEffect(() => {
     setRecycled(route.params.recycled);
@@ -79,6 +80,23 @@ export default function RecycleScreen({ navigation, route }) {
               />
             }
             navigate={celo}
+          />
+        </View>
+
+        <View style={Spacing.sectionThreeScan}>
+          <View style={{ alignSelf: "flex-start" }}>
+            <Text style={Typography.headerText}>My Kiva Portfolio:</Text>
+          </View>
+
+          <ActivityBanner
+            title="Kiva"
+            square={
+              <Image
+                style={Spacing.celoLogo}
+                source={require("../assets/KivaLogo.jpg")}
+              />
+            }
+            navigate={kiva}
           />
         </View>
       </View>

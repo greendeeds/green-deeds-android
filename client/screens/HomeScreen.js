@@ -50,6 +50,7 @@ const HomeScreen = ({ navigation, route }) => {
     });
   const celo = () => navigation.navigate("Celo");
   const about = () => navigation.navigate("About");
+  const kiva = () => navigation.navigate("Kiva");
 
   const onLogoutPress = () => {
     firebase.auth().signOut().then(logout);
@@ -117,6 +118,23 @@ const HomeScreen = ({ navigation, route }) => {
               />
             }
             navigate={celo}
+          />
+        </View>
+
+        <View style={Spacing.sectionThreeScan}>
+          <View style={{ alignSelf: "flex-start" }}>
+            <Text style={Typography.headerText}>My Kiva Portfolio:</Text>
+          </View>
+
+          <ActivityBanner
+            title="Kiva"
+            square={
+              <Image
+                style={Spacing.celoLogo}
+                source={require("../assets/KivaLogo.jpg")}
+              />
+            }
+            navigate={kiva}
           />
         </View>
       </View>

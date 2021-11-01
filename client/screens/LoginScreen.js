@@ -102,7 +102,7 @@ const LoginScreen = ({ navigation }) => {
           />
         </View>
 
-        <TouchableOpacity style={Buttons.logInOutButton} onPress={onLoginPress}>
+        <TouchableOpacity style={Buttons.logInOutButton} onPress={login}>
           <Text style={Typography.logInOutButtonText}>Log In </Text>
           <Entypo name="login" style={Typography.logInOutEntypo} />
         </TouchableOpacity>

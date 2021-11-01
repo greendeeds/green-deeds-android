@@ -15,6 +15,9 @@ import RecycleScreen from "./screens/RecycleScreen";
 import CompostScreen from "./screens/CompostScreen";
 import CameraScreen from "./screens/CameraScreen";
 import CeloScreen from "./screens/CeloScreen";
+import KivaScreen from "./screens/KivaScreen";
+import KivaPortfolioScreen from "./screens/KivaPortfolioScreen";
+import KivaInvestScreen from "./screens/KivaInvestScreen";
 
 import { StackRouter } from "react-navigation";
 import { NavigationContainer } from "@react-navigation/native";
@@ -61,6 +64,35 @@ const Navigator = () => {
                 headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
                 title: "Celo Log In",
+              }}
+            />
+
+            <Stack.Screen
+              name="Kiva"
+              component={KivaScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
+                headerTintColor: Colors.WHITE,
+              }}
+            />
+
+            <Stack.Screen
+              name="Portfolio"
+              component={KivaPortfolioScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
+                headerTintColor: Colors.WHITE,
+                title: "Portfolio",
+              }}
+            />
+
+            <Stack.Screen
+              name="Invest"
+              component={KivaInvestScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
+                headerTintColor: Colors.WHITE,
+                title: "Invest",
               }}
             />
 

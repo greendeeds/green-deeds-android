@@ -83,6 +83,23 @@ export default function CompostScreen({ navigation, route }) {
           />
         </View>
 
+        <View style={Spacing.sectionThreeScan}>
+          <View style={{ alignSelf: "flex-start" }}>
+            <Text style={Typography.headerText}>My Kiva Portfolio:</Text>
+          </View>
+
+          <ActivityBanner
+            title="Kiva"
+            square={
+              <Image
+                style={Spacing.celoLogo}
+                source={require("../assets/KivaLogo.jpg")}
+              />
+            }
+            navigate={celo}
+          />
+        </View>
+
         <View style={Spacing.blankVoid} />
       </View>
 
