@@ -12,7 +12,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import { Buttons, Spacing, Typography } from "../styles";
+import { Buttons, Spacing, Typography } from "../Styles";
 
 // import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 

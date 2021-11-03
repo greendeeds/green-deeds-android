@@ -10,7 +10,7 @@ import {
 import { withNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { LinearGradient } from "expo-linear-gradient";
-import { Colors } from "../styles";
+import { Colors } from "../Styles";
 
 const InfoBanner = (props) => {
   return (

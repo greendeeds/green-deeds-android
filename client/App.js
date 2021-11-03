@@ -3,6 +3,9 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { firebase } from "./firebase/config";
 
+//graphQL
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
 //Redux
 import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
@@ -23,13 +26,22 @@ const rootReducer = combineReducers({
   AccountReducer,
 });
 
+const cache = new InMemoryCache()
+const client = new ApolloClient({
+  uri: 'https://api.kivaws.org/graphql',
+  cache,
+  //defaultOptions: { watchQuery: { fetchPolicy: 'cache-and-network' } },
+})
+
 const store = createStore(rootReducer);
 
 export default function App() {
   return (
+  <ApolloProvider client={client}>
     <Provider store={store}>
       <Navigator />
     </Provider>
+  </ApolloProvider>
   );
 }
 

@@ -22,10 +22,11 @@ import KivaInvestScreen from "./screens/KivaInvestScreen";
 import { StackRouter } from "react-navigation";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { StyleSheet, Image, ColorPropType, Button, Alert } from "react-native";
+//import { StyleSheet, Image, ColorPropType, Button, Alert } from "react-native";
 
-import { Buttons, Colors } from "./styles";
+import { Buttons, Colors } from "./Styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import KivaAssetClassScreen from "./screens/KivaAssetClassScreen";
 
 const Stack = createStackNavigator();
 
@@ -83,6 +84,16 @@ const Navigator = () => {
                 headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
                 title: "Portfolio",
+              }}
+            />
+
+            <Stack.Screen
+              name="AssetClass"
+              component={KivaAssetClassScreen}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
+                headerTintColor: Colors.WHITE,
+                title: "AssetClass",
               }}
             />
 

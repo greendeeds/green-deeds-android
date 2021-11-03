@@ -9,7 +9,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { withNavigation } from "@react-navigation/native";
-import { Buttons, Spacing, Typography, Colors } from "../styles";
+import { Buttons, Spacing, Typography, Colors } from "../Styles";
 import { Entypo } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { LinearGradient } from "expo-linear-gradient";

@@ -9,7 +9,7 @@ import {
   Image,
   Platform,
 } from "react-native";
-import { Buttons, Spacing, Typography } from "../styles";
+import { Buttons, Spacing, Typography } from "../Styles";
 import { Camera } from "expo-camera";
 import { NavigationContainer } from "@react-navigation/native";
 

@@ -19,38 +19,49 @@ import { Entypo } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ActivityBanner from "../components/ActivityBanner";
 import InfoBanner from "../components/InfoBanner";
+import KivaScreen from "./KivaScreen";
 
-const KivaInvestScreen = ({ navigation, route }) => {
+const KivaAssetClassScreen = ({ navigation, route }) => {
   const loggedIn = useSelector((state) => state.AccountReducer.loggedIn);
   const dispatch = useDispatch();
 
   const logout = () => dispatch(logoutAction());
-  const compost = () =>
-    navigation.navigate("Compost", {
-      redeemableAmount: "0.00",
-      composted: 0,
-    });
-  const recycle = () =>
-    navigation.navigate("Recycle", {
-      redeemableAmount: "0.00",
-      recycled: 0,
-    });
+  const compost = () => navigation.navigate("Compost");
+  const recycle = () => navigation.navigate("Recycle");
   const celo = () => navigation.navigate("Celo");
   const about = () => navigation.navigate("About");
   const kiva = () => navigation.navigate("Kiva");
   const home = () => navigation.navigate("Home");
-  const kivaScreen = () => navigation.navigate("Kiva");
-  const kivaPortfolio = () => navigation.navigate("Portfolio");
-  const kivaAssetClass = () => navigation.navigate("AssetClass");
+  const kivaInvest = () => navigation.navigate("Invest");
 
   const GET_CATEGORIES = gql`
   {
     lend {
-      loans {
+      loans (filters: {gender: female, country: ["KE", "US"]}, limit: 5) {
         totalCount
         values {
+          name
+          loanAmount
+          image {
+            url(presetSize: small)
+          }
           activity {
             name
+          }
+          geocode {
+            country {
+              isoCode
+              name
+            }
+          }
+          lenders {
+            totalCount
+          }
+          ... on LoanPartner {
+            partnerName
+          }
+          ... on LoanDirect {
+            trusteeName
           }
         }
       }
@@ -64,7 +75,7 @@ const KivaInvestScreen = ({ navigation, route }) => {
     if (loading) return <Text>Loading...</Text>;
     if (error) return <Text>Error loading Categories </Text>;
 
-    let categories = [...new Set(data.lend.loans.values.map(item => item.activity.name))]
+    let categories = [data.lend.loans.values.map(item => item.lenders.totalCount)]
     //console.log(categories)
 
   const onLogoutPress = () => {
@@ -76,22 +87,14 @@ const KivaInvestScreen = ({ navigation, route }) => {
       <View style={Spacing.bannerContainer}>
         <View style={Spacing.sectionOne}>
           <View style={{ alignSelf: "flex-start" }}>
-            <Text style={Typography.headerText}>Categories to invest in:</Text>
+            <Text style={Typography.headerText}>List of Investments with Class Rating:</Text>
           </View>
           <View>
-            <Text>Categories go here.</Text>
+            <Text>[Category Name]</Text>
           </View>
-          <View>
-            {/* <Text>Total Count: {data.lend.loans.totalCount}</Text> */}
-            <Text>List of all Categories:</Text>
-            { categories.map((item, key)=>(
-            <Text key={key}> { item } </Text>)
-            )}
-          </View>
-          <Button title="Invest" onPress={kivaAssetClass} />
-          <Button title="Portfolio" onPress={kivaPortfolio} />
-          <Button title="Kiva Home" onPress={kivaScreen} />
         </View>
+        <Button title="Invest" onPress={kivaInvest} />
+        <Button title="Kiva Home" onPress={kiva} />
 
         <View style={Spacing.bottomNavContainer}>
           <View style={Spacing.bottomTextContainer}>
@@ -105,4 +108,4 @@ const KivaInvestScreen = ({ navigation, route }) => {
   );
 };
 
-export default KivaInvestScreen;
+export default KivaAssetClassScreen;

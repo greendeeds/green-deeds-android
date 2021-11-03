@@ -2,7 +2,7 @@ import { ProposalStage } from "@celo/contractkit/lib/wrappers/Governance";
 import React, { useCallback } from "react";
 import { Alert, Text, Button, Linking, StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Buttons, Typography } from "../styles";
+import { Buttons, Typography } from "../Styles";
 import { Entypo } from "@expo/vector-icons";
 
 const OpenURLButton = ({ url, children }) => {
