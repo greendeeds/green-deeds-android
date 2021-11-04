@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutAction } from '../actions/AccountActions'
 import { useQuery, gql } from '@apollo/client'
-import { SafeAreaView, Text, View, Alert, Image } from 'react-native'
+import { SafeAreaView, Text, View, Alert, Image, Button } from 'react-native'
 
 import { withNavigation } from '@react-navigation/native'
 import firebase from 'firebase'
@@ -51,7 +51,7 @@ const KivaInvestScreen = ({ navigation, route }) => {
         loans {
           totalCount
           values {
-            activity {
+            sector {
               name
             }
           }
@@ -67,7 +67,7 @@ const KivaInvestScreen = ({ navigation, route }) => {
   if (error) return <Text>Error loading Categories </Text>
 
   let categories = [
-    ...new Set(data.lend.loans.values.map((item) => item.activity.name)),
+    ...new Set(data.lend.loans.values.map((item) => item.sector.name)),
   ]
 
   const onLogoutPress = () => {
@@ -98,6 +98,15 @@ const KivaInvestScreen = ({ navigation, route }) => {
           ))}
 
           <View>
+            <Button
+            title="Agriculture"
+            //Button Title
+            onPress={() =>
+              navigation.navigate('AssetClass', {
+                paramKey: "Agriculture",
+              })
+            }
+            />
             <View>
               {/* <View style={{ alignSelf: 'flex-start' }}>
                   <Text>Choose a category</Text>
