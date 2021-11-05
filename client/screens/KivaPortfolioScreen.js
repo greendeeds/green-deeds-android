@@ -66,7 +66,7 @@ const KivaScreen = ({ navigation, route }) => {
 
         <View>
           <Center>
-            <Text>$175 Available</Text>
+            <Text>$175 Loaned so far!</Text>
           </Center>
           <Button
             size="sm"

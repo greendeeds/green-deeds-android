@@ -90,6 +90,11 @@ const Spacing = {
     width: 40,
   },
 
+  kivaLogo: {
+    height: 40,
+    width: 70,
+  },
+
   greenDeedLogo: {
     height: 45,
     width: 45,

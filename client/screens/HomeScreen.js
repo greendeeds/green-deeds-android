@@ -128,14 +128,14 @@ const HomeScreen = ({ navigation, route }) => {
 
           <View style={Spacing.sectionThreeScan}>
             <View style={{ alignSelf: "flex-start" }}>
-              <Text style={Typography.headerText}>My Kiva Portfolio:</Text>
+              <Text style={Typography.headerText}>Lend with Kiva:</Text>
             </View>
 
             <ActivityBanner
               title="Kiva"
               square={
                 <Image
-                  style={Spacing.celoLogo}
+                  style={Spacing.kivaLogo}
                   source={require("../assets/KivaLogo.jpg")}
                 />
               }
