@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { logoutAction } from '../actions/AccountActions'
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutAction } from "../actions/AccountActions";
 import {
   SafeAreaView,
   Text,
@@ -8,14 +8,14 @@ import {
   Alert,
   Image,
   ScrollView,
-} from 'react-native'
-import { withNavigation } from '@react-navigation/native'
-import firebase from 'firebase'
-import { Buttons, Spacing, Typography } from '../Styles'
-import { Entypo } from '@expo/vector-icons'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import ActivityBanner from '../components/ActivityBanner'
-import InfoBanner from '../components/InfoBanner'
+} from "react-native";
+import { withNavigation } from "@react-navigation/native";
+import firebase from "firebase";
+import { Buttons, Spacing, Typography } from "../Styles";
+import { Entypo } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import ActivityBanner from "../components/ActivityBanner";
+import InfoBanner from "../components/InfoBanner";
 
 import {
   NativeBaseProvider,
@@ -23,12 +23,12 @@ import {
   Container,
   Heading,
   Button,
-} from 'native-base'
+} from "native-base";
 
 const KivaScreen = ({ navigation, route }) => {
-  const loggedIn = useSelector((state) => state.AccountReducer.loggedIn)
-  const dispatch = useDispatch()
-  const [disclaimerAccepted, setDisclaimerAccepted] = useState(false)
+  const loggedIn = useSelector((state) => state.AccountReducer.loggedIn);
+  const dispatch = useDispatch();
+  const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
   useEffect(() => {
     // if (route && route.params && route.params.disclaimerAccepted)
@@ -36,44 +36,44 @@ const KivaScreen = ({ navigation, route }) => {
 
     if (disclaimerAccepted === false) {
       Alert.alert(
-        'Disclaimer',
-        'You’ve invested in cleaning up the planet, now invest in something bigger. Now with Green Deeds, users can invest their earned rewards o help fund Kiva microloans. Tap “Invest” after next to the completion bar of a green deed to invest that amount. Invest in single projects or multiple which are set up into risk classes. Returns vary and all investment risks apply.',
+        "Disclaimer",
+        "You’ve invested in cleaning up the planet, now invest in something bigger. Now with Green Deeds, users can invest their earned rewards o help fund Kiva microloans. Tap “Invest” after next to the completion bar of a green deed to invest that amount. Invest in single projects or multiple which are set up into risk classes. Returns vary and all investment risks apply.",
         [
           {
-            text: 'Cancel',
-            onPress: about,
-            style: 'cancel',
+            text: "Cancel",
+            onPress: home,
+            style: "cancel",
           },
           {
-            text: 'Accept',
+            text: "Accept",
           },
-        ],
-      )
-      setDisclaimerAccepted(true)
+        ]
+      );
+      setDisclaimerAccepted(true);
     }
-  }, [route])
+  }, [route]);
 
-  const logout = () => dispatch(logoutAction())
+  const logout = () => dispatch(logoutAction());
   const compost = () =>
-    navigation.navigate('Compost', {
-      redeemableAmount: '0.00',
+    navigation.navigate("Compost", {
+      redeemableAmount: "0.00",
       composted: 0,
-    })
+    });
   const recycle = () =>
-    navigation.navigate('Recycle', {
-      redeemableAmount: '0.00',
+    navigation.navigate("Recycle", {
+      redeemableAmount: "0.00",
       recycled: 0,
-    })
-  const celo = () => navigation.navigate('Celo')
-  const about = () => navigation.navigate('About')
-  const kiva = () => navigation.navigate('Kiva')
-  const home = () => navigation.navigate('Home')
-  const kivaPortfolio = () => navigation.navigate('Portfolio')
-  const kivaInvest = () => navigation.navigate('Invest')
+    });
+  const celo = () => navigation.navigate("Celo");
+  const about = () => navigation.navigate("About");
+  const kiva = () => navigation.navigate("Kiva");
+  const home = () => navigation.navigate("Home");
+  const kivaPortfolio = () => navigation.navigate("Portfolio");
+  const kivaInvest = () => navigation.navigate("Invest");
 
   const onLogoutPress = () => {
-    firebase.auth().signOut().then(logout)
-  }
+    firebase.auth().signOut().then(logout);
+  };
 
   return (
     <NativeBaseProvider>
@@ -129,7 +129,7 @@ const KivaScreen = ({ navigation, route }) => {
         </View>
       </Center>
     </NativeBaseProvider>
-  )
-}
+  );
+};
 
-export default KivaScreen
+export default KivaScreen;

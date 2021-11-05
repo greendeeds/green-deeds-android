@@ -26,6 +26,7 @@ export default function CompostScreen({ navigation, route }) {
     });
   const about = () => navigation.navigate("About");
   const logout = () => dispatch(logoutAction());
+  const kiva = () => navigation.navigate("Kiva");
 
   useEffect(() => {
     setComposted(route.params.composted);
@@ -45,7 +46,7 @@ export default function CompostScreen({ navigation, route }) {
 
           <View style={Spacing.sectionOneScan}>
             <View style={{ alignSelf: "flex-start" }}>
-              <Text style={Typography.headerText}>Scan Compost Receipt:</Text>
+              <Text style={Typography.headerText}>Scan Compost Drop-off:</Text>
             </View>
 
             <ScanBanner
@@ -99,7 +100,7 @@ export default function CompostScreen({ navigation, route }) {
                   source={require("../assets/KivaLogo.jpg")}
                 />
               }
-              navigate={celo}
+              navigate={kiva}
             />
           </View>
 
