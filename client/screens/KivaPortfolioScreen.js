@@ -30,18 +30,11 @@ import {
 const KivaScreen = ({ navigation, route }) => {
   const loggedIn = useSelector((state) => state.AccountReducer.loggedIn);
   const dispatch = useDispatch();
+  const [loaned, setLoaned] = useState(175);
 
   const logout = () => dispatch(logoutAction());
-  const compost = () =>
-    navigation.navigate("Compost", {
-      redeemableAmount: "0.00",
-      composted: 0,
-    });
-  const recycle = () =>
-    navigation.navigate("Recycle", {
-      redeemableAmount: "0.00",
-      recycled: 0,
-    });
+  const compost = () => navigation.navigate("Compost");
+  const recycle = () => navigation.navigate("Recycle");
   const celo = () => navigation.navigate("Celo");
   const about = () => navigation.navigate("About");
   const kiva = () => navigation.navigate("Kiva");
@@ -49,9 +42,10 @@ const KivaScreen = ({ navigation, route }) => {
   const kivaPortfolio = () => navigation.navigate("Portfolio");
   const kivaInvest = () => navigation.navigate("Invest");
 
-  const onLogoutPress = () => {
-    firebase.auth().signOut().then(logout);
-  };
+  useEffect(() => {
+    const newLoanAmount = route.params.loaned + loaned;
+    setLoaned(newLoanAmount);
+  }, [route.params]);
 
   return (
     <NativeBaseProvider>
@@ -66,7 +60,7 @@ const KivaScreen = ({ navigation, route }) => {
 
         <View>
           <Center>
-            <Text>$175 Loaned so far!</Text>
+            <Text>${loaned} Loaned so far!</Text>
           </Center>
           <Button
             size="sm"

@@ -68,7 +68,10 @@ const KivaScreen = ({ navigation, route }) => {
   const about = () => navigation.navigate("About");
   const kiva = () => navigation.navigate("Kiva");
   const home = () => navigation.navigate("Home");
-  const kivaPortfolio = () => navigation.navigate("Portfolio");
+  const kivaPortfolio = () =>
+    navigation.navigate("Portfolio", {
+      loaned: 40,
+    });
   const kivaInvest = () => navigation.navigate("Invest");
 
   const onLogoutPress = () => {
