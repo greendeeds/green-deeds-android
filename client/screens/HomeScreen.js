@@ -11,6 +11,8 @@ import {
   ScrollView,
 } from "react-native";
 
+import { NativeBaseProvider, Center, Container } from "native-base";
+
 import { withNavigation } from "@react-navigation/native";
 import firebase from "firebase";
 import { Buttons, Spacing, Typography } from "../Styles";
@@ -57,105 +59,109 @@ const HomeScreen = ({ navigation, route }) => {
   };
 
   return (
-    <SafeAreaView style={Spacing.backgroundContainer}>
-      <View style={Spacing.bannerContainer}>
-        <View style={Spacing.sectionOne}>
-          <View style={{ alignSelf: "flex-start" }}>
-            <Text style={Typography.headerText}>Do a Green Deed:</Text>
+    <NativeBaseProvider style={Spacing.backgroundContainer}>
+      <ScrollView>
+        <View style={Spacing.bannerContainer}>
+          <View style={Spacing.sectionOne}>
+            <View style={{ alignSelf: "flex-start" }}>
+              <Text style={Typography.headerText}>Do a Green Deed:</Text>
+            </View>
+
+            <ActivityBanner
+              title="Recycle"
+              square={
+                <Entypo name="leaf" style={Typography.roundButtonEntypo} />
+              }
+              navigate={recycle}
+            />
+
+            <ActivityBanner
+              title="Compost"
+              square={
+                <Entypo name="flower" style={Typography.roundButtonEntypo} />
+              }
+              navigate={compost}
+            />
+
+            <ActivityBanner
+              title="More Green Deeds coming soon!"
+              square={
+                <Image
+                  style={Spacing.greenDeedLogo}
+                  source={require("../assets/check-logo.png")}
+                />
+              }
+              navigate={about}
+            />
           </View>
 
-          <ActivityBanner
-            title="Recycle"
-            square={<Entypo name="leaf" style={Typography.roundButtonEntypo} />}
-            navigate={recycle}
-          />
+          <View style={Spacing.sectionTwo}>
+            <View style={{ alignSelf: "flex-start" }}>
+              <Text style={Typography.headerText}>
+                Learn the Facts; Make a Difference:
+              </Text>
+            </View>
 
-          <ActivityBanner
-            title="Compost"
-            square={
-              <Entypo name="flower" style={Typography.roundButtonEntypo} />
-            }
-            navigate={compost}
-          />
+            <ScrollView horizontal={true}>
+              <InfoBanner title="In the US, 21.5 Million tons of food is wasted each and every year. Compost with Green Deeds and turn your trash into gold!" />
+              <InfoBanner title="Even though it does not have the largest population, the US produces the most municipal solid waste (aka garbage) in the world: 258 Million Tons." />
+              <InfoBanner title="The EPA estimates that 75% of the US waste stream is recyclable, but only 30% of that is recycled. Recycle with Green Deeds and turn your trash into gold!" />
+            </ScrollView>
+          </View>
 
-          <ActivityBanner
-            title="More Green Deeds coming soon!"
-            square={
-              <Image
-                style={Spacing.greenDeedLogo}
-                source={require("../assets/check-logo.png")}
-              />
-            }
-            navigate={about}
-          />
+          <View style={Spacing.sectionThree}>
+            <View style={{ alignSelf: "flex-start" }}>
+              <Text style={Typography.headerText}>Earn Celo:</Text>
+            </View>
+
+            <ActivityBanner
+              title="My Celo Wallet"
+              square={
+                <Image
+                  style={Spacing.celoLogo}
+                  source={require("../assets/celo-logo-colored-rings.png")}
+                />
+              }
+              navigate={celo}
+            />
+          </View>
+
+          <View style={Spacing.sectionThreeScan}>
+            <View style={{ alignSelf: "flex-start" }}>
+              <Text style={Typography.headerText}>My Kiva Portfolio:</Text>
+            </View>
+
+            <ActivityBanner
+              title="Kiva"
+              square={
+                <Image
+                  style={Spacing.celoLogo}
+                  source={require("../assets/KivaLogo.jpg")}
+                />
+              }
+              navigate={kiva}
+            />
+          </View>
         </View>
 
-        <View style={Spacing.sectionTwo}>
-          <View style={{ alignSelf: "flex-start" }}>
-            <Text style={Typography.headerText}>
-              Learn the Facts; Make a Difference:
+        <View style={Spacing.bottomNavContainer}>
+          <View style={Spacing.bottomTextContainer}>
+            <TouchableOpacity onPress={logout}>
+              <Text style={Typography.linkText}>Click here to Log Out</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={Spacing.bottomTextContainer}>
+            <Text style={Typography.footerText}>
+              Learn more about Green Deeds{" "}
             </Text>
+            <TouchableOpacity onPress={about}>
+              <Text style={Typography.linkText}>here</Text>
+            </TouchableOpacity>
           </View>
-
-          <ScrollView horizontal={true}>
-            <InfoBanner title="In the US, 21.5 Million tons of food is wasted each and every year. Compost with Green Deeds and turn your trash into gold!" />
-            <InfoBanner title="Even though it does not have the largest population, the US produces the most municipal solid waste (aka garbage) in the world: 258 Million Tons." />
-            <InfoBanner title="The EPA estimates that 75% of the US waste stream is recyclable, but only 30% of that is recycled. Recycle with Green Deeds and turn your trash into gold!" />
-          </ScrollView>
         </View>
-
-        <View style={Spacing.sectionThree}>
-          <View style={{ alignSelf: "flex-start" }}>
-            <Text style={Typography.headerText}>Earn Celo:</Text>
-          </View>
-
-          <ActivityBanner
-            title="My Celo Wallet"
-            square={
-              <Image
-                style={Spacing.celoLogo}
-                source={require("../assets/celo-logo-colored-rings.png")}
-              />
-            }
-            navigate={celo}
-          />
-        </View>
-
-        <View style={Spacing.sectionThreeScan}>
-          <View style={{ alignSelf: "flex-start" }}>
-            <Text style={Typography.headerText}>My Kiva Portfolio:</Text>
-          </View>
-
-          <ActivityBanner
-            title="Kiva"
-            square={
-              <Image
-                style={Spacing.celoLogo}
-                source={require("../assets/KivaLogo.jpg")}
-              />
-            }
-            navigate={kiva}
-          />
-        </View>
-      </View>
-
-      <View style={Spacing.bottomNavContainer}>
-        <View style={Spacing.bottomTextContainer}>
-          <TouchableOpacity onPress={logout}>
-            <Text style={Typography.linkText}>Click here to Log Out</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={Spacing.bottomTextContainer}>
-          <Text style={Typography.footerText}>
-            Learn more about Green Deeds{" "}
-          </Text>
-          <TouchableOpacity onPress={about}>
-            <Text style={Typography.linkText}>here</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </SafeAreaView>
+      </ScrollView>
+    </NativeBaseProvider>
   );
 };
 
