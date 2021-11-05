@@ -8,6 +8,8 @@ import { Spacing, Typography } from "../Styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { logoutAction } from "../actions/AccountActions";
 
+import { NativeBaseProvider, Center, ScrollView } from "native-base";
+
 export default function RecycleScreen({ navigation, route }) {
   const dispatch = useDispatch();
   const [recycled, setRecycled] = useState(0);
@@ -32,92 +34,94 @@ export default function RecycleScreen({ navigation, route }) {
   }, [route.params]);
 
   return (
-    <SafeAreaView>
-      <View style={Spacing.bannerContainer}>
-        <View style={Spacing.topLogo}>
-          <Image
-            source={require("../assets/check-logo.png")}
-            style={styles.logo}
-          />
-        </View>
-
-        <View style={Spacing.sectionOneScan}>
-          <View style={{ alignSelf: "flex-start" }}>
-            <Text style={Typography.headerText}>Scan Recycle Receipt:</Text>
-          </View>
-          <ScanBanner
-            square={<Entypo name="camera" style={Typography.cameraEntypo} />}
-            navigate={photo}
-          />
-        </View>
-
-        <View style={Spacing.sectionTwoScan}>
-          <View style={{ alignSelf: "flex-start" }}>
-            <Text style={Typography.headerText}>Results of Scan:</Text>
+    <NativeBaseProvider>
+      <ScrollView>
+        <View style={Spacing.bannerContainer}>
+          <View style={Spacing.topLogo}>
+            <Image
+              source={require("../assets/check-logo.png")}
+              style={styles.logo}
+            />
           </View>
 
-          <View style={Spacing.scanResults}>
-            <Text style={Typography.quantityText}>
-              Bottles Recycled: {recycled}
+          <View style={Spacing.sectionOneScan}>
+            <View style={{ alignSelf: "flex-start" }}>
+              <Text style={Typography.headerText}>Scan Recycle Receipt:</Text>
+            </View>
+            <ScanBanner
+              square={<Entypo name="camera" style={Typography.cameraEntypo} />}
+              navigate={photo}
+            />
+          </View>
+
+          <View style={Spacing.sectionTwoScan}>
+            <View style={{ alignSelf: "flex-start" }}>
+              <Text style={Typography.headerText}>Results of Scan:</Text>
+            </View>
+
+            <View style={Spacing.scanResults}>
+              <Text style={Typography.quantityText}>
+                Bottles Recycled: {recycled}
+              </Text>
+              <Text style={Typography.quantityText}>
+                Redeemable Amount: ${redeemableAmount}{" "}
+              </Text>
+            </View>
+          </View>
+
+          <View style={Spacing.sectionThreeScan}>
+            <View style={{ alignSelf: "flex-start" }}>
+              <Text style={Typography.headerText}>Redeem for Celo:</Text>
+            </View>
+
+            <ActivityBanner
+              title="My Celo Wallet"
+              square={
+                <Image
+                  style={Spacing.celoLogo}
+                  source={require("../assets/celo-logo-colored-rings.png")}
+                />
+              }
+              navigate={celo}
+            />
+          </View>
+
+          <View style={Spacing.sectionThreeScan}>
+            <View style={{ alignSelf: "flex-start" }}>
+              <Text style={Typography.headerText}>My Kiva Portfolio:</Text>
+            </View>
+
+            <ActivityBanner
+              title="Kiva"
+              square={
+                <Image
+                  style={Spacing.celoLogo}
+                  source={require("../assets/KivaLogo.jpg")}
+                />
+              }
+              navigate={kiva}
+            />
+          </View>
+        </View>
+
+        <View style={Spacing.bottomNavContainer}>
+          <View style={Spacing.bottomTextContainer}>
+            <TouchableOpacity onPress={logout}>
+              <Text style={Typography.linkText}>Click here to Log Out</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={Spacing.bottomTextContainer}>
+            <Text style={Typography.footerText}>
+              Learn more about Green Deeds{" "}
             </Text>
-            <Text style={Typography.quantityText}>
-              Redeemable Amount: ${redeemableAmount}{" "}
-            </Text>
+            <TouchableOpacity onPress={about}>
+              <Text style={Typography.linkText}>here</Text>
+            </TouchableOpacity>
           </View>
         </View>
-
-        <View style={Spacing.sectionThreeScan}>
-          <View style={{ alignSelf: "flex-start" }}>
-            <Text style={Typography.headerText}>Redeem for Celo:</Text>
-          </View>
-
-          <ActivityBanner
-            title="My Celo Wallet"
-            square={
-              <Image
-                style={Spacing.celoLogo}
-                source={require("../assets/celo-logo-colored-rings.png")}
-              />
-            }
-            navigate={celo}
-          />
-        </View>
-
-        <View style={Spacing.sectionThreeScan}>
-          <View style={{ alignSelf: "flex-start" }}>
-            <Text style={Typography.headerText}>My Kiva Portfolio:</Text>
-          </View>
-
-          <ActivityBanner
-            title="Kiva"
-            square={
-              <Image
-                style={Spacing.celoLogo}
-                source={require("../assets/KivaLogo.jpg")}
-              />
-            }
-            navigate={kiva}
-          />
-        </View>
-      </View>
-
-      <View style={Spacing.bottomNavContainer}>
-        <View style={Spacing.bottomTextContainer}>
-          <TouchableOpacity onPress={logout}>
-            <Text style={Typography.linkText}>Click here to Log Out</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={Spacing.bottomTextContainer}>
-          <Text style={Typography.footerText}>
-            Learn more about Green Deeds{" "}
-          </Text>
-          <TouchableOpacity onPress={about}>
-            <Text style={Typography.linkText}>here</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </SafeAreaView>
+      </ScrollView>
+    </NativeBaseProvider>
   );
 }
 
