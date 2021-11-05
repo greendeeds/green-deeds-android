@@ -1,22 +1,27 @@
 // S P A C I N G
 
-import { color } from 'react-native-reanimated'
-import Colors from './colors'
+import { color } from "react-native-reanimated";
+import Colors from "./colors";
 
 const Spacing = {
   // Kiva
   kivaContainer: {
     backgroundColor: Colors.WHITE,
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
+  },
+  kivaInvestMoreContainer: {
+    backgroundColor: Colors.WHITE,
+    width: "50%",
+    height: "50%",
   },
   bottomNavKiva: {
     backgroundColor: Colors.PRIMARY,
-    width: '100%',
+    width: "100%",
     height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
     bottom: 0,
   },
   imgKiva: {
@@ -27,8 +32,8 @@ const Spacing = {
   // parent for everything on the screen
   backgroundContainer: {
     backgroundColor: Colors.WHITE,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    justifyContent: "flex-end",
+    alignItems: "center",
     flex: 1,
   },
 
@@ -36,32 +41,32 @@ const Spacing = {
   // HOME //
   //////////////////////////////
   bannerContainer: {
-    height: '90%',
-    width: '100%',
+    height: "90%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
+    justifyContent: "space-evenly",
+    alignItems: "center",
   },
 
   //first header and banners
   sectionOne: {
-    height: '50%',
-    width: '100%',
+    height: "50%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    marginTop: '5%',
+    marginTop: "5%",
   },
 
   //second header and banner
   sectionTwo: {
-    height: '20%',
-    width: '100%',
+    height: "20%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
   },
 
   //third header and banner
   sectionThree: {
-    height: '20%',
-    width: '100%',
+    height: "20%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
   },
 
@@ -80,65 +85,65 @@ const Spacing = {
   /////////////////////////
   //top of screen logo
   topLogo: {
-    height: '25%',
-    width: '100%',
+    height: "25%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   //top of screen click to scan receipt
   sectionOneScan: {
-    height: '20%',
-    width: '100%',
+    height: "20%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
   },
 
   // header plus scan results
   sectionTwoScan: {
-    height: '20%',
-    width: '100%',
+    height: "20%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
   },
 
   scanResults: {
     height: 75,
     width: 375,
-    alignSelf: 'center',
-    justifyContent: 'center',
+    alignSelf: "center",
+    justifyContent: "center",
     borderRadius: 2.5,
     marginVertical: 2,
     backgroundColor: Colors.WHITE,
   },
 
   sectionThreeScan: {
-    height: '20%',
-    width: '100%',
+    height: "20%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    justifyContent: 'center',
-    paddingBottom: '5%',
+    justifyContent: "center",
+    paddingBottom: "5%",
   },
 
   /////////////////////////
   // LOGIN SCREEN CONTAINERS
   // top of screen/logo
   logoContainer: {
-    height: '60%',
-    width: '100%',
+    height: "60%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    paddingTop: '15%',
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    paddingTop: "15%",
   },
 
   // parent for set of text inputs (username/pw) and login button
   loginContainer: {
-    height: '30%',
-    width: '100%',
+    height: "30%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: '5%',
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingTop: "5%",
   },
 
   // makes a pretty box to accept username/pw info
@@ -161,16 +166,16 @@ const Spacing = {
   ////////////////////////////////
   // parent for links at bottom of the screen
   bottomNavContainer: {
-    height: '10%',
-    width: '100%',
+    height: "10%",
+    width: "100%",
     backgroundColor: Colors.PRIMARY,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
 
   // lines up text and clickables in bottomNavContainer
   bottomTextContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
   },
 
   ///////////////////////////////
@@ -178,68 +183,68 @@ const Spacing = {
   ///////////////////////////////
   // holds text
   topTextContainer: {
-    height: '30%',
-    width: '100%',
+    height: "30%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   // holds logo
   midContainer: {
-    height: '60%',
-    width: '100%',
+    height: "60%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
   },
 
   //////////////////////////////
   // REGISTER SCREEN
   //////////////////////////////
   regLogoContainer: {
-    height: '35%',
-    width: '100%',
+    height: "35%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   headingContainer: {
-    height: '10%',
-    width: '100%',
+    height: "10%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    justifyContent: "flex-end",
+    alignItems: "center",
   },
 
   registerContainer: {
-    height: '45%',
-    width: '100%',
+    height: "45%",
+    width: "100%",
     backgroundColor: Colors.WHITE,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: '2%',
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingTop: "2%",
   },
 
   ///////////////////////////////////////
   // CELO GREEN (DEEDS) SCREEN ///////////
   ///////////////////////////////////////
   container: {
-    height: '90%',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    height: "90%",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: Colors.WHITE,
   },
 
   celoLogoContainer: {
-    height: '30%',
-    width: '100%',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    height: "30%",
+    width: "100%",
+    justifyContent: "flex-end",
+    alignItems: "center",
     backgroundColor: Colors.WHITE,
-    paddingBottom: '5%',
+    paddingBottom: "5%",
   },
 
   celoLogoFull: {
@@ -248,31 +253,31 @@ const Spacing = {
   },
 
   attentionContainer: {
-    height: '12%',
-    width: '90%',
+    height: "12%",
+    width: "90%",
     backgroundColor: Colors.WHITE,
-    borderColor: 'red',
+    borderColor: "red",
     borderWidth: 2,
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingLeft: 15,
-    marginTop: '4%',
+    marginTop: "4%",
   },
 
   celoLoginContainer: {
-    height: '20%',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: '5%',
+    height: "20%",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "5%",
   },
 
   downloadContainer: {
-    height: '20%',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: '8%',
+    height: "20%",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: "8%",
   },
-}
+};
 
-export default Spacing
+export default Spacing;

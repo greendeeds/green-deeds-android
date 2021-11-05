@@ -5,12 +5,10 @@ import {
   SafeAreaView,
   Text,
   View,
-  Button,
   Alert,
   Image,
   ScrollView,
 } from "react-native";
-
 import { withNavigation } from "@react-navigation/native";
 import firebase from "firebase";
 import { Buttons, Spacing, Typography } from "../Styles";
@@ -18,19 +16,37 @@ import { Entypo } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ActivityBanner from "../components/ActivityBanner";
 import InfoBanner from "../components/InfoBanner";
-import KivaScreen from "./KivaScreen";
 
-const KivaPortfolioScreen = ({ navigation, route }) => {
+import PortfolioExample from "../assets/PortfolioExample.jpg";
+
+import {
+  NativeBaseProvider,
+  Center,
+  Container,
+  Heading,
+  Button,
+} from "native-base";
+
+const KivaScreen = ({ navigation, route }) => {
   const loggedIn = useSelector((state) => state.AccountReducer.loggedIn);
   const dispatch = useDispatch();
 
   const logout = () => dispatch(logoutAction());
-  const compost = () => navigation.navigate("Compost");
-  const recycle = () => navigation.navigate("Recycle");
+  const compost = () =>
+    navigation.navigate("Compost", {
+      redeemableAmount: "0.00",
+      composted: 0,
+    });
+  const recycle = () =>
+    navigation.navigate("Recycle", {
+      redeemableAmount: "0.00",
+      recycled: 0,
+    });
   const celo = () => navigation.navigate("Celo");
   const about = () => navigation.navigate("About");
   const kiva = () => navigation.navigate("Kiva");
   const home = () => navigation.navigate("Home");
+  const kivaPortfolio = () => navigation.navigate("Portfolio");
   const kivaInvest = () => navigation.navigate("Invest");
 
   const onLogoutPress = () => {
@@ -38,29 +54,49 @@ const KivaPortfolioScreen = ({ navigation, route }) => {
   };
 
   return (
-    <SafeAreaView style={Spacing.backgroundContainer}>
-      <View style={Spacing.bannerContainer}>
-        <View style={Spacing.sectionOne}>
-          <View style={{ alignSelf: "flex-start" }}>
-            <Text style={Typography.headerText}>Categories to invest in:</Text>
-          </View>
-          <View>
-            <Text>Categories go here.</Text>
-          </View>
-        </View>
-        <Button title="Invest" onPress={kivaInvest} />
-        <Button title="Kiva Home" onPress={kiva} />
+    <NativeBaseProvider>
+      <Center style={Spacing.kivaContainer}>
+        <Container style={{ marginTop: 0, marginBottom: 55 }}>
+          <Heading>
+            <Heading color="emerald.500"> Kiva</Heading> Portfolio
+          </Heading>
+        </Container>
 
-        <View style={Spacing.bottomNavContainer}>
+        <View></View>
+
+        <View>
+          <Center>
+            <Text>$175 Available</Text>
+          </Center>
+          <Button
+            size="sm"
+            marginTop="8"
+            marginBottom="8"
+            px="130"
+            backgroundColor="#086ae9"
+            onPress={kivaInvest}
+          >
+            Invest More
+          </Button>
+        </View>
+
+        <View>
+          <Image
+            source={PortfolioExample}
+            style={{ width: 315, height: 190 }}
+          />
+        </View>
+
+        <View style={Spacing.bottomNavKiva}>
           <View style={Spacing.bottomTextContainer}>
             <TouchableOpacity onPress={home}>
               <Text style={Typography.linkText}>Homepage</Text>
             </TouchableOpacity>
           </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </Center>
+    </NativeBaseProvider>
   );
 };
 
-export default KivaPortfolioScreen;
+export default KivaScreen;
