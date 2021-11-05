@@ -1,6 +1,7 @@
 // S P A C I N G
 
 import { color } from "react-native-reanimated";
+import { paddingTop } from "styled-system";
 import Colors from "./colors";
 
 const Spacing = {
@@ -27,6 +28,20 @@ const Spacing = {
   imgKiva: {
     width: 225,
     height: 120,
+  },
+  containerKiva: {
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "flex-start",
+  },
+  itemKiva: {
+    width: "50%",
+    paddingBottom: "7%",
+  },
+  iconsKiva: {
+    width: 150,
+    height: 150,
   },
 
   // parent for everything on the screen
