@@ -28,6 +28,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { Buttons, Colors } from './Styles'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import KivaAssetClassScreen from './screens/KivaAssetClassScreen'
+import KivaInvesmentConfirmation from './screens/KivaInvesmentConfirmation'
 
 const Stack = createStackNavigator()
 
@@ -95,6 +96,16 @@ const Navigator = () => {
                 headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
                 title: 'AssetClass',
+              }}
+            />
+
+            <Stack.Screen
+              name="InvesmentConfirmation"
+              component={KivaInvesmentConfirmation}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
+                headerTintColor: Colors.WHITE,
+                title: 'InvesmentConfirmation',
               }}
             />
 
