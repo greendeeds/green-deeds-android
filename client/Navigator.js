@@ -1,38 +1,39 @@
-import "react-native-gesture-handler";
-import React from "react";
+import 'react-native-gesture-handler'
+import React from 'react'
 
 //Redux
-import { useSelector } from "react-redux";
-import AccountReducer from "./reducers/AccountReducer";
+import { useSelector } from 'react-redux'
+import AccountReducer from './reducers/AccountReducer'
 
 //Navigation
-import { createStackNavigator } from "@react-navigation/stack";
-import AboutScreen from "./screens/AboutScreen";
-import LoginScreen from "./screens/LoginScreen";
-import RegisterScreen from "./screens/RegisterScreen";
-import HomeScreen from "./screens/HomeScreen";
-import RecycleScreen from "./screens/RecycleScreen";
-import CompostScreen from "./screens/CompostScreen";
-import CameraScreen from "./screens/CameraScreen";
-import CeloScreen from "./screens/CeloScreen";
-import KivaScreen from "./screens/KivaScreen";
-import KivaPortfolioScreen from "./screens/KivaPortfolioScreen";
-import KivaInvestScreen from "./screens/KivaInvestScreen";
+import { createStackNavigator } from '@react-navigation/stack'
+import AboutScreen from './screens/AboutScreen'
+import LoginScreen from './screens/LoginScreen'
+import RegisterScreen from './screens/RegisterScreen'
+import HomeScreen from './screens/HomeScreen'
+import RecycleScreen from './screens/RecycleScreen'
+import CompostScreen from './screens/CompostScreen'
+import CameraScreen from './screens/CameraScreen'
+import CeloScreen from './screens/CeloScreen'
+import KivaScreen from './screens/KivaScreen'
+import KivaPortfolioScreen from './screens/KivaPortfolioScreen'
+import KivaInvestScreen from './screens/KivaInvestScreen'
+import KivaClassDetails from './screens/KivaClassDetails'
 
-import { StackRouter } from "react-navigation";
-import { NavigationContainer } from "@react-navigation/native";
+import { StackRouter } from 'react-navigation'
+import { NavigationContainer } from '@react-navigation/native'
 
 //import { StyleSheet, Image, ColorPropType, Button, Alert } from "react-native";
 
-import { Buttons, Colors } from "./Styles";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import KivaAssetClassScreen from "./screens/KivaAssetClassScreen";
+import { Buttons, Colors } from './Styles'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import KivaAssetClassScreen from './screens/KivaAssetClassScreen'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 const Navigator = () => {
-  const loggedIn = useSelector((state) => state.AccountReducer.loggedIn);
-  const logout = () => dispatch(logoutAction());
+  const loggedIn = useSelector((state) => state.AccountReducer.loggedIn)
+  const logout = () => dispatch(logoutAction())
 
   return (
     <NavigationContainer>
@@ -41,7 +42,7 @@ const Navigator = () => {
           <>
             <Stack.Screen
               options={{
-                animationTypeForReplace: "push",
+                animationTypeForReplace: 'push',
                 headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
               }}
@@ -64,7 +65,7 @@ const Navigator = () => {
               options={{
                 headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
-                title: "Celo Log In",
+                title: 'Celo Log In',
               }}
             />
 
@@ -83,7 +84,7 @@ const Navigator = () => {
               options={{
                 headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
-                title: "Portfolio",
+                title: 'Portfolio',
               }}
             />
 
@@ -93,7 +94,7 @@ const Navigator = () => {
               options={{
                 headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
-                title: "AssetClass",
+                title: 'AssetClass',
               }}
             />
 
@@ -103,7 +104,7 @@ const Navigator = () => {
               options={{
                 headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
-                title: "Invest",
+                title: 'Invest',
               }}
             />
 
@@ -133,6 +134,14 @@ const Navigator = () => {
                 headerTintColor: Colors.WHITE,
               }}
             />
+            <Stack.Screen
+              name="KivaClassDetails"
+              component={KivaClassDetails}
+              options={{
+                headerStyle: { backgroundColor: Colors.PRIMARY },
+                headerTintColor: Colors.WHITE,
+              }}
+            />
           </>
         ) : (
           <>
@@ -140,8 +149,8 @@ const Navigator = () => {
               name="Login"
               component={LoginScreen}
               options={{
-                title: "Log In",
-                animationTypeForReplace: "pop",
+                title: 'Log In',
+                animationTypeForReplace: 'pop',
                 headerStyle: { backgroundColor: Colors.PRIMARY },
                 headerTintColor: Colors.WHITE,
               }}
@@ -167,7 +176,7 @@ const Navigator = () => {
         )}
       </Stack.Navigator>
     </NavigationContainer>
-  );
-};
+  )
+}
 
-export default Navigator;
+export default Navigator

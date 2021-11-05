@@ -24,7 +24,7 @@ import SubcategoryList from './KivaSubcategoryList'
 
 import { NativeBaseProvider, Center, Container, Heading } from 'native-base'
 
-const KivaAssetClassScreen = ({ navigation, route }) => {
+const KivaClassDetails = ({ navigation, route }) => {
   const loggedIn = useSelector((state) => state.AccountReducer.loggedIn)
   const dispatch = useDispatch()
 
@@ -35,7 +35,7 @@ const KivaAssetClassScreen = ({ navigation, route }) => {
   const about = () => navigation.navigate('About')
   const kiva = () => navigation.navigate('Kiva')
   const home = () => navigation.navigate('Home')
-  const KivaClassDetails = () => navigation.navigate('KivaClassDetails')
+  const kivaInvest = () => navigation.navigate('Invest')
 
   const GET_CATEGORIES = gql`
     {
@@ -88,22 +88,21 @@ const KivaAssetClassScreen = ({ navigation, route }) => {
     <NativeBaseProvider>
       <Center style={Spacing.kivaContainer}>
         <Container>
-          <Heading paddingTop="6" fontSize="19" paddingBottom="3">
-            List of Investments with Class Rating
-          </Heading>
-          <Text>
-            Kiva microloans have been bucketized into asset classes for you to
-            invest your change in. That way, that tiny contribution is helping
-            make big change across multiple projects.
-            {`\n`}
-            {`\n`}
-            You can also choose from individual microloans hosted on Kiva
-          </Text>
-          <SubcategoryList KivaClassDetails={KivaClassDetails} />
+          <Center>
+            <Heading fontSize="18" paddingBottom="3">
+              Your Selection
+            </Heading>
+            <Heading fontSize="19" paddingBottom="3">
+              CLASS A - Agriculture
+            </Heading>
+            <Text>
+              You will be helping fund new farmland in these parts of the world
+            </Text>
+          </Center>
         </Container>
       </Center>
     </NativeBaseProvider>
   )
 }
 
-export default KivaAssetClassScreen
+export default KivaClassDetails

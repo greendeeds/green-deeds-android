@@ -17,12 +17,27 @@ import {
   Container,
   Heading,
   ScrollView,
-  Spacer,
 } from 'native-base'
 
 const KivaInvestScreen = ({ navigation, route }) => {
+  const images = [
+    'https://images.unsplash.com/photo-1561099131-1dc11da6dfa4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1160&q=80',
+
+    'https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+
+    'https://images.unsplash.com/photo-1523199455310-87b16c0eed11?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80',
+
+    'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1122&q=80',
+
+    'https://images.unsplash.com/photo-1560951016-1242fd973c7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+
+    'https://images.unsplash.com/photo-1621782785524-f674b0de624e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
+
+    'https://images.unsplash.com/photo-1470298609667-dcd85581b096?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80',
+  ]
   const img1 =
-    'https://images.unsplash.com/photo-1560951016-1242fd973c7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'
+    'https://images.unsplash.com/photo-1470298609667-dcd85581b096?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80'
+
   const loggedIn = useSelector((state) => state.AccountReducer.loggedIn)
   const dispatch = useDispatch()
 
@@ -60,8 +75,6 @@ const KivaInvestScreen = ({ navigation, route }) => {
     }
   `
   const { loading, error, data } = useQuery(GET_CATEGORIES)
-  console.log('Error: ', error)
-  console.log('data: ', data)
 
   if (loading) return <Text>Loading...</Text>
   if (error) return <Text>Error loading Categories </Text>
@@ -76,11 +89,11 @@ const KivaInvestScreen = ({ navigation, route }) => {
 
   return (
     <NativeBaseProvider>
-      <Center>
+      <Center style={Spacing.kivaContainer}>
         <Heading
           color="emerald.500"
           fontSize="32"
-          paddingTop="76"
+          paddingTop="86"
           paddingBottom="3"
         >
           Kiva
@@ -93,37 +106,8 @@ const KivaInvestScreen = ({ navigation, route }) => {
             microloans.
           </Text>
 
-          {categories.map((item, key) => (
-            <Text key={key}> {item} </Text>
-          ))}
-
-          <View>
-            <View>
-              {/* <View style={{ alignSelf: 'flex-start' }}>
-                  <Text>Choose a category</Text>
-                </View> */}
-              <View>
-                {/* <Text>Total Count: {data.lend.loans.totalCount}</Text> */}
-                {/* <Text>List of all Categories:</Text>
-                  {categories.map((item, key) => (
-                    <Text key={key}> {item} </Text>
-                  ))} */}
-              </View>
-              {/* <Button title="Invest" onPress={kivaAssetClass} />
-                <Button title="Portfolio" onPress={kivaPortfolio} />
-                <Button title="Kiva Home" onPress={kivaScreen} /> */}
-            </View>
-
-            {/* <View style={Spacing.bottomNavContainer}>
-                <View style={Spacing.bottomTextContainer}>
-                  <TouchableOpacity onPress={home}>
-                    <Text style={Typography.linkText}>Homepage</Text>
-                  </TouchableOpacity>
-                </View>
-              </View> */}
-          </View>
-          {/* <ScrollView>
-            {categories.map((item, key) => (
+          <ScrollView>
+            {categories.map((item, index = 0) => (
               <View
                 style={{
                   borderBottomColor: 'black',
@@ -132,11 +116,16 @@ const KivaInvestScreen = ({ navigation, route }) => {
                   padding: 36,
                 }}
               >
-                <Text style={Typography.registerHeaderText}>{item}</Text>
-                <Image source={{ uri: img1 }} style={Spacing.imgKiva} />
+                <TouchableOpacity onPress={kivaAssetClass}>
+                  <Text style={Typography.registerHeaderText}>{item}</Text>
+                  <Image
+                    source={{ uri: images[index] ? images[index] : img1 }}
+                    style={Spacing.imgKiva}
+                  />
+                </TouchableOpacity>
               </View>
             ))}
-          </ScrollView> */}
+          </ScrollView>
         </Container>
       </Center>
     </NativeBaseProvider>

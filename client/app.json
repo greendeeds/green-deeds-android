@@ -3,7 +3,11 @@
     "name": "Green Deeds",
     "slug": "GreenDeeds",
     "privacy": "unlisted",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/gd-logo-no-background.png",
@@ -16,7 +20,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },

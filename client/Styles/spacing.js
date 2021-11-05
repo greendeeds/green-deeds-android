@@ -20,7 +20,7 @@ const Spacing = {
     bottom: 0,
   },
   imgKiva: {
-    width: 213,
+    width: 225,
     height: 120,
   },
 
